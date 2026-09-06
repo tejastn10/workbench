@@ -8,14 +8,9 @@ Model Context Protocol server configs, shared across agents. One file per server
 | [`context7.md`](context7.md) | Live, version-pinned library docs (long tail)         | none / opt key |
 | [`deepwiki.md`](deepwiki.md) | Auto-generated architecture docs for public GitHub repos | none        |
 
-**GitHub** is deliberately not an MCP server here — the `gh` CLI covers PR / issue
-history and it's already authenticated. See
-[`../github-cli.md`](../github-cli.md) and
-[`../../.out-of-scope/github-mcp-server.md`](../../.out-of-scope/github-mcp-server.md).
-
-Framework-specific doc servers (Next.js, Vercel, …) are also out — Context7 covers
-the long tail. See
-[`../../.out-of-scope/framework-specific-mcp-servers.md`](../../.out-of-scope/framework-specific-mcp-servers.md).
+GitHub PR / issue history goes through the `gh` CLI, not an MCP server — see
+[`../github-cli.md`](../github-cli.md). Context7 already covers version-pinned docs
+for individual frameworks, so there are no per-framework servers.
 
 ## Combined Claude Code `.mcp.json`
 
