@@ -16,7 +16,8 @@ project `CONTEXT.md` files build on this — they don't restate it.
 
 - `feature/<name>` for new work.
 - `bugfix/<name>` for fixes.
-- `<name>` is short and kebab-cased.
+- `improvement/<name>` for non-feature, non-bug changes (perf, refactor, tooling).
+- `<name>` is short and kebab-cased. Enforced by a husky `pre-push` hook.
 
 ## Commit authorship
 
