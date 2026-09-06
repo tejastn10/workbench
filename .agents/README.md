@@ -8,8 +8,8 @@ shared setup that isn't a convention.
 | `mcp/`                | MCP server configs + per-server setup notes                |
 | `external-skills.md`  | Skill sets worth installing rather than rewriting (Matt Pocock's, …) |
 | `github-cli.md`       | GitHub access via `gh` (used instead of a GitHub MCP server) |
-| `claude-code/`        | Settings, slash-command notes, hook snippets               |
-| `vscode/`             | VS Code agent config and notes                             |
-| `codex/`              | Codex config and notes                                     |
+| `claude-code/`        | Skills/MCP/settings locations, `settings.example.json`, commit-trailer note |
+| `vscode/`             | Copilot instruction files, `.vscode/mcp.json`              |
+| `codex/`              | `AGENTS.md` native support, `~/.codex/config.toml` MCP block |
 
 Tool-agnostic conventions live in [`../AGENTS.md`](../AGENTS.md), not here.

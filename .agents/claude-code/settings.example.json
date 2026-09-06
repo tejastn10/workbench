@@ -1,0 +1,29 @@
+{
+  "$comment": "Merge into ~/.claude/settings.json (or a project .claude/settings.json). Read-only helpers the skills in this repo lean on are pre-allowed; anything that writes stays manual.",
+  "permissions": {
+    "allow": [
+      "Bash(gh pr view:*)",
+      "Bash(gh pr diff:*)",
+      "Bash(gh pr checks:*)",
+      "Bash(gh pr list:*)",
+      "Bash(gh issue view:*)",
+      "Bash(gh issue list:*)",
+      "Bash(gh release view:*)",
+      "Bash(gh release list:*)",
+      "Bash(gh search:*)",
+      "Bash(gh api:*)",
+      "Bash(git status)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git branch:*)",
+      "Bash(git describe:*)",
+      "Bash(git ls-files:*)"
+    ],
+    "deny": [
+      "Bash(git push:*)",
+      "Bash(gh pr merge:*)",
+      "Bash(gh release create:*)"
+    ]
+  }
+}
