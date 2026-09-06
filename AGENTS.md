@@ -40,4 +40,7 @@ Stack-specific checks and tooling live in `skills/pr-review/<language>.md`.
 
 ## Docs
 
-- PRDs and ADRs use the templates in `docs/templates/`.
+- PRDs, ADRs, and postmortems use the templates in `docs/templates/`, driven by the
+  skills in `skills/docs/` and `skills/debugging/`.
+- ADRs are numbered and immutable once accepted — supersede, don't edit.
+- Postmortems are blameless: systems and decisions, never people.
