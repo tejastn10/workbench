@@ -27,6 +27,7 @@ to its §4–§5 and add a stack-specific checklist.
 | `python-backend-pr-review.md`    | Python / Poetry, FastAPI     | reuse-first       |
 | `react-frontend-pr-review.md`    | React / Next.js / Vite       | reuse-first       |
 | `devops-pr-review.md`            | GitHub Actions, Docker, CI   | safety-first      |
+| `distill-review-style.md`        | *meta* — build a review skill from your own PR comment corpus | — |
 
 ## docs
 
@@ -39,7 +40,9 @@ to its §4–§5 and add a stack-specific checklist.
 
 | Skill                | Use for                                                       |
 | -------------------- | ---------------------------------------------------------- |
+| `grill.md`           | Relentless interview to align on a plan before building (adapted from Matt Pocock) |
 | `phased-delivery.md` | Split multi-session work into vertical phases with non-goals, checkable done-definitions, and tag/merge boundaries |
+| `handoff.md`         | Compact a session into a portable handoff doc (adapted from Matt Pocock) |
 
 ## scaffolding
 
@@ -66,16 +69,16 @@ to its §4–§5 and add a stack-specific checklist.
 | Skill          | Use for                                                       |
 | -------------- | ---------------------------------------------------------- |
 | `deslopify.md` | Strip AI slop from freshly written code — subtractive only, run before commit |
+| `tdd.md`       | Red → green loop that produces tests worth keeping (adapted from Matt Pocock) |
 
-## Installing a skill
-
-**Claude Code**
+## Installing skills
 
 ```bash
-mkdir -p .claude/skills/pr-review-python
-cp ~/workbench/skills/pr-review/python-backend-pr-review.md \
-   .claude/skills/pr-review-python/SKILL.md
+../scripts/install-skills.sh            # symlink all → ~/.claude/skills/<name>/SKILL.md
+../scripts/install-skills.sh --list     # what's available
+../scripts/install-skills.sh --project /path/to/repo   # copy into a repo's .claude + .github
 ```
 
-**VS Code agents / Codex** — reference the skill path from the agent's
-instructions file, or paste it as context for a one-off.
+Claude Code and VS Code agent mode both load the `SKILL.md` format. Codex has no
+skills dir — reference the path from `AGENTS.md`. Full walkthrough:
+[`../docs/USAGE.md`](../docs/USAGE.md).

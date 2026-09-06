@@ -1,49 +1,56 @@
 # External skills
 
-Skill sets worth installing rather than rewriting. These are **not vendored into
-this repo** — they update upstream and Matt's set is designed to be subscribed to,
-not forked. Install them alongside the skills in `../skills/`.
+Matt Pocock's [`mattpocock/skills`](https://github.com/mattpocock/skills) (MIT) is
+a ~30-skill set for "real engineering, not vibe coding". Two ways to use it here:
 
-## Matt Pocock — `mattpocock/skills`
+1. **Adapted copies** of a few, living in `../skills/` — trimmed, self-contained,
+   pointed at this repo's conventions. Listed below.
+2. **The rest, installed from upstream** — they update as Matt ships and are
+   designed to be subscribed to, not forked.
 
-<https://github.com/mattpocock/skills> · MIT · ~30 skills for "real engineering,
-not vibe coding". Small, composable, model-agnostic.
+## Adapted into this repo
 
-**Install**
+| This repo                        | From Matt's         | Changes                                        |
+| -------------------------------- | ------------------- | -------------------------------------------- |
+| `skills/planning/grill.md`       | `grill-me` + `grilling` | self-contained; hands off to our phased-delivery / write-prd / write-adr |
+| `skills/planning/handoff.md`     | `handoff`           | self-contained; references our phase-boundary notes |
+| `skills/quality/tdd.md`          | `tdd`               | inlined `tests.md` / `mocking.md` / `codebase-design` refs; stack conventions from our pr-review skills |
+
+Keep these in sync manually when Matt's change materially — check a couple of times
+a year.
+
+## Install from upstream
 
 ```bash
-# Claude Code plugin (managed, auto-updates):
+# Claude Code — managed plugin, auto-updates
 claude plugins install mattpocock-skills
-#   then, once per repo:  /setup-matt-pocock-skills
+#   then, once per repo:
+/setup-matt-pocock-skills
 
-# or editable copies (skills.sh) for any agent:
+# any agent — editable copies via the skills CLI
 npx skills@latest add mattpocock/skills
 ```
 
-**What fills a real gap here**
+**Worth taking** (gaps our set doesn't cover):
 
-| Skill | Why take it |
+| Skill | Why |
 | --- | --- |
-| `grill-me` / `grill-with-docs` | Forces alignment before the agent codes. `grill-with-docs` also drafts `CONTEXT.md` + ADRs so domain names stop being generic. Complements our `write-prd` / `write-adr`. |
-| `domain-modeling` | Builds the ubiquitous-language glossary — the thing our `CONTEXT.md` is for. |
-| `tdd` | Failing test → minimum code to pass. We have no TDD skill. |
-| `wayfinder` / `to-tickets` / `to-spec` / `triage` | Turning a goal into tracked, triaged work. Out of scope for our set. |
-| `handoff` | Session-to-session context handoff. |
-| `resolving-merge-conflicts` | Structured conflict resolution. |
+| `grill-with-docs` | grilling that also drafts `CONTEXT.md` + ADRs as it goes — the richer version of our `grill` |
+| `domain-modeling` | builds the ubiquitous-language glossary our `CONTEXT.md` wants |
+| `wayfinder` / `to-tickets` / `to-spec` / `triage` | turning a goal into tracked, triaged, blocking-edge work |
+| `research` / `wait-what` | structured investigation / "explain what just happened" |
+| `resolving-merge-conflicts` | structured conflict resolution |
 
-**What overlaps with ours — pick one, don't run both**
+**Skip — we have our own, grounded version:**
 
-| Theirs | Ours |
+| Matt's | Ours |
 | --- | --- |
-| `code-review` | `skills/pr-review/*` (ours is grounded in a real 120-comment corpus and per-stack) |
+| `code-review` | `skills/pr-review/*` (built from a real 120-comment corpus, per stack) |
 | `diagnosing-bugs` | `skills/debugging/investigate-bug.md` |
-| `improve-codebase-architecture` / `codebase-design` | partial overlap with `skills/quality/` intent |
-
-Rule of thumb: keep ours for PR review and bug investigation (they encode Tejas's
-actual style); take Matt's for the planning/ticketing/TDD workflows we don't cover.
+| `improve-codebase-architecture` / `codebase-design` | overlaps `skills/quality/` intent |
 
 ## `mattpocock/agent-rules-books`
 
-<https://github.com/mattpocock/agent-rules-books> · `AGENTS.md` rules distilled
-from Clean Code, Refactoring, DDD, Clean Architecture, DDIA. Reference material for
+<https://github.com/mattpocock/agent-rules-books> — `AGENTS.md` rules distilled from
+Clean Code, Refactoring, DDD, Clean Architecture, DDIA. Reference material for
 `../AGENTS.md`, not a skill install.

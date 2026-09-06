@@ -31,20 +31,20 @@
 
 ## Getting Started 🚀
 
-Each skill is a self-contained Markdown file. It assumes the conventions in `AGENTS.md`; if a project diverges, that project's own `CONTEXT.md` records the difference.
-
-### Using a Skill ⚙️
-
-**Claude Code** — copy or symlink the skill into a project (or `~/.claude/skills/` for global use):
+Full walkthrough: [`docs/USAGE.md`](docs/USAGE.md). The short version:
 
 ```bash
-mkdir -p .claude/skills/pr-review-go
-cp ~/workbench/skills/pr-review/go-backend-pr-review.md .claude/skills/pr-review-go/SKILL.md
+git clone git@github.com:tejastn10/workbench.git ~/workbench
+~/workbench/scripts/install-skills.sh          # symlink skills → ~/.claude/skills/<name>/SKILL.md
 ```
 
-Or reference its path directly from the project's `CLAUDE.md`.
+Each skill is a self-contained Markdown file with `name` / `description` frontmatter, loaded by Claude Code and VS Code agent mode alike. Skills assume the conventions in `AGENTS.md`; if a project diverges, its own `CONTEXT.md` records the difference.
 
-**VS Code agents / Codex** — point the agent's instructions file at the skill, or paste it as context for a one-off review.
+### Installing a Skill ⚙️
+
+- **Global** — `scripts/install-skills.sh` symlinks every skill; `git pull` keeps them current.
+- **Per project** — `scripts/install-skills.sh --project /path/to/repo` copies them into `.claude/skills/` and `.github/skills/`.
+- **Codex** — reference a skill's path from `AGENTS.md`, or paste it in for a one-off.
 
 ### MCP Setup 🔌
 
@@ -63,19 +63,23 @@ Per-server notes (env vars, auth, gotchas) live alongside each config. GitHub ac
 ```bash
 workbench/
 ├── skills/                 # Agent skills, organized by category
-│   ├── pr-review/          #   Per-stack PR review (nestjs, go, python, react, devops)
+│   ├── pr-review/          #   Per-stack PR review + distill-review-style
 │   ├── docs/               #   Doc generation (PRD, ADR)
-│   ├── planning/           #   Phased delivery of multi-session work
+│   ├── planning/           #   grill, phased-delivery, handoff
 │   ├── scaffolding/        #   Service and module scaffolding
 │   ├── release/            #   Changelog and release routines
 │   ├── debugging/          #   Investigation and incident playbooks
-│   └── quality/            #   Post-writing cleanup (deslopify)
+│   └── quality/            #   deslopify, tdd
+├── scripts/
+│   └── install-skills.sh   # Wire skills into Claude Code / VS Code
 ├── .agents/                # Agent-specific config and shared setup
 │   ├── mcp/                #   MCP server configs (Context7, DeepWiki)
+│   ├── claude-code/  vscode/  codex/   #   per-tool setup notes
 │   ├── github-cli.md       #   GitHub access via gh
-│   └── external-skills.md  #   Skill sets to install rather than rewrite
+│   └── external-skills.md  #   Matt Pocock's skills — adapted + install pointers
 ├── docs/
-│   └── templates/          # Reusable document templates (PRD, ADR, POSTMORTEM)
+│   ├── templates/          #   PRD, ADR, POSTMORTEM
+│   └── USAGE.md            #   How to install and use everything
 ├── .out-of-scope/          # Decisions to NOT do something, kept not deleted
 ├── AGENTS.md               # Global conventions — cross-tool source of truth
 ├── CONTEXT.md              # Stub — per-project domain glossary + context
