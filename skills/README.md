@@ -5,11 +5,26 @@ file that assumes the conventions in [`../AGENTS.md`](../AGENTS.md).
 
 | Category         | Purpose                                                  | Status       |
 | ---------------- | ------------------------------------------------------- | ------------ |
-| `pr-review/`     | Per-language PR review (NestJS, Python, Go)             | in progress  |
+| `pr-review/`     | PR review by stack (see below)                          | in progress  |
 | `docs/`          | Doc generation — PRD, ADR, design docs                  | planned      |
 | `scaffolding/`   | Service and module bootstrapping                        | planned      |
 | `release/`       | Changelog and release-notes routines                   | planned      |
 | `debugging/`     | Investigation flows and incident write-ups             | planned      |
+
+## pr-review
+
+Distilled from a corpus of ~120 real review comments (NestJS/TS backend), then
+carried onto the other stacks. `nestjs-backend-pr-review.md` is the canonical
+reference for voice, severity markers, and review structure; the others point back
+to its §4–§5 and add a stack-specific checklist.
+
+| Skill                            | Stack                        | Priority order          |
+| -------------------------------- | ---------------------------- | ----------------------- |
+| `nestjs-backend-pr-review.md`    | NestJS / TypeScript, Go SDK  | reuse-first             |
+| `go-backend-pr-review.md`        | Go services, CLIs, consumers | correctness-first       |
+| `python-backend-pr-review.md`    | Python / Poetry, FastAPI     | reuse-first             |
+| `react-frontend-pr-review.md`    | React / Next.js / Vite       | reuse-first             |
+| `devops-pr-review.md`            | GitHub Actions, Docker, CI   | safety-first            |
 
 ## Installing a skill
 
@@ -17,11 +32,9 @@ file that assumes the conventions in [`../AGENTS.md`](../AGENTS.md).
 
 ```bash
 mkdir -p .claude/skills/pr-review-python
-cp ~/workbench/skills/pr-review/python.md .claude/skills/pr-review-python/SKILL.md
+cp ~/workbench/skills/pr-review/python-backend-pr-review.md \
+   .claude/skills/pr-review-python/SKILL.md
 ```
-
-For `pr-review/`, also copy `_common.md` or inline its contents — the
-per-language files build on it.
 
 **VS Code agents / Codex** — reference the skill path from the agent's
 instructions file, or paste it as context for a one-off review.
