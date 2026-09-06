@@ -11,7 +11,8 @@ file that assumes the conventions in [`../AGENTS.md`](../AGENTS.md).
 | `scaffolding/`   | Service and module bootstrapping                        | ready   |
 | `release/`       | Changelog and release-notes routines                   | ready   |
 | `debugging/`     | Investigation flows and incident write-ups             | ready   |
-| `quality/`       | Post-writing cleanup (deslopify)                        | ready   |
+| `quality/`       | Post-writing cleanup (deslopify, tdd)                   | ready   |
+| `security/`      | Security review and dependency audit                    | ready   |
 
 ## pr-review
 
@@ -70,6 +71,13 @@ to its §4–§5 and add a stack-specific checklist.
 | -------------- | ---------------------------------------------------------- |
 | `deslopify.md` | Strip AI slop from freshly written code — subtractive only, run before commit |
 | `tdd.md`       | Red → green loop that produces tests worth keeping (adapted from Matt Pocock) |
+
+## security
+
+| Skill                   | Use for                                                   |
+| ----------------------- | ------------------------------------------------------- |
+| `security-review.md`    | Whole-surface pass — deps, secrets, races, authz, injection, SSRF |
+| `audit-dependencies.md` | Per-stack audit (`npm audit` / `govulncheck` / `pip-audit`), triage, safe updates |
 
 ## Installing skills
 

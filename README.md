@@ -23,6 +23,7 @@
 - **Phased Delivery**: Splitting multi-session work into tracer-bullet phases with non-goals and real rollback points.
 - **Release Routines**: Conventional-commit-driven changelogs and release notes.
 - **Debugging Playbooks**: Structured investigation flows and incident write-ups.
+- **Security**: A whole-surface review pass and per-stack dependency audit.
 - **Deslopify**: A subtractive pass that strips AI slop from freshly written code before commit.
 - **MCP Setup**: Context7 and DeepWiki configs with per-client setup notes (GitHub goes through `gh`).
 - **Global Conventions**: Commit, branch, and review standards in one place — see [AGENTS.md](AGENTS.md).
@@ -69,7 +70,8 @@ workbench/
 │   ├── scaffolding/        #   Service and module scaffolding
 │   ├── release/            #   Changelog and release routines
 │   ├── debugging/          #   Investigation and incident playbooks
-│   └── quality/            #   deslopify, tdd
+│   ├── quality/            #   deslopify, tdd
+│   └── security/           #   security-review, audit-dependencies
 ├── scripts/
 │   └── install-skills.sh   # Wire skills into Claude Code / VS Code
 ├── .agents/                # Agent-specific config and shared setup

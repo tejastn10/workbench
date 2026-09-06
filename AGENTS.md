@@ -65,6 +65,14 @@ Stack-specific checks and tooling live in `skills/pr-review/<language>.md`.
 - On any session that touched code, run the `deslopify` pass
   (`skills/quality/deslopify.md`) before the commit — subtractive only.
 
+## Security
+
+- A change touching auth, user input, file handling, external requests, or
+  dependencies gets a `security-review` pass (`skills/security/`) on top of the
+  inline pr-review checks. Run it before a release too.
+- A real secret that was ever committed is compromised — rotate it, don't just
+  delete it.
+
 ## Rejected ideas
 
 - Decisions to *not* do something live in `.out-of-scope/` as short files, not in
