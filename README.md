@@ -1,27 +1,58 @@
+<p align="center">
+  <img src="logo.svg" alt="Logo">
+</p>
+
 # Workbench 🛠️
 
 ![License](https://img.shields.io/badge/License-MIT-yellow?logo=open-source-initiative&logoColor=white)
 ![Claude Code](https://img.shields.io/badge/Claude%20Code-agent%20config-D97757?logo=anthropic&logoColor=white)
 ![MCP](https://img.shields.io/badge/MCP-servers-000000?logo=modelcontextprotocol&logoColor=white)
+![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-FE5196?logo=conventionalcommits&logoColor=white)
 
-Personal collection of agent skills, instructions, and workflows for coding agents (Claude Code, VS Code agents, Codex).
+**Workbench** is a personal collection of agent skills, instructions, and MCP configuration for coding agents — reused across [Claude Code](https://claude.com/claude-code), VS Code agents, and Codex. Not a framework: just my setup, kept in one place so whichever agent I'm driving pulls from the same conventions.
 
-**Workbench:** where the tools live.
-
----
-
-Welcome to **workbench**!
-
-This repository is where I keep the setup that makes coding agents actually useful — reusable skills, instruction files, prompt workflows, and MCP configuration. It is a personal, evolving collection: things get added as they prove their worth and pruned when they stop earning their place.
+**Workbench:** where the tools are kept, and kept sharp.
 
 ---
 
-## What's Inside 🌟
+## Features 🌟
 
-- **Skills** — reusable agent skills (packaged instructions for a specific kind of task).
-- **Instructions** — agent instruction files (`CLAUDE.md`, `AGENTS.md`, editor rules) worth reusing across projects.
-- **Workflows** — multi-step prompts and slash commands for recurring work.
-- **MCP** — Model Context Protocol server configs and setup notes.
+- **PR Review Skills**: Per-language review skills (NestJS/TypeScript, Python, Go) matched to my actual review style, not generic best practices.
+- **Doc Generation**: Reusable templates and skills for PRDs, ADRs, and design docs.
+- **Service Scaffolding**: Bootstrapping new services and modules with my conventions baked in.
+- **Release Routines**: Conventional-commit-driven changelogs and release notes.
+- **Debugging Playbooks**: Structured investigation flows and incident write-ups.
+- **MCP Setup**: Model Context Protocol server configs and setup notes, shared across agents.
+- **Global Conventions**: Commit, branch, and review standards in one place — see [AGENTS.md](AGENTS.md).
+
+---
+
+## Getting Started 🚀
+
+Each skill is a self-contained Markdown file. It assumes the conventions in `AGENTS.md`; if a project diverges, that project's own `CONTEXT.md` records the difference.
+
+### Using a Skill ⚙️
+
+**Claude Code** — copy or symlink the skill into a project (or `~/.claude/skills/` for global use):
+
+```bash
+mkdir -p .claude/skills/pr-review-go
+cp ~/workbench/skills/pr-review/go.md .claude/skills/pr-review-go/SKILL.md
+```
+
+Or reference its path directly from the project's `CLAUDE.md`.
+
+**VS Code agents / Codex** — point the agent's instructions file at the skill, or paste it as context for a one-off review.
+
+### MCP Setup 🔌
+
+MCP server configs live in `.agents/mcp/`. Copy the relevant server block into your agent's MCP config:
+
+- **Claude Code** — `~/.claude/mcp.json` or a project `.mcp.json`
+- **VS Code** — `.vscode/mcp.json`
+- **Codex** — `~/.codex/config.toml`
+
+Per-server notes (env vars, auth, gotchas) live alongside each config.
 
 ---
 
@@ -29,20 +60,30 @@ This repository is where I keep the setup that makes coding agents actually usef
 
 ```bash
 workbench/
-├── skills/          # Reusable agent skills
-├── instructions/    # Agent instruction files and rules
-├── workflows/       # Multi-step prompts and slash commands
-├── mcp/             # MCP server configs and setup notes
-└── README.md        # This file
+├── skills/               # Agent skills, organized by category
+│   ├── pr-review/        #   Per-language PR review (nestjs, python, go)
+│   ├── docs/             #   Doc generation (PRD, ADR, design docs)
+│   ├── scaffolding/      #   Service and module scaffolding
+│   ├── release/          #   Changelog and release routines
+│   └── debugging/        #   Investigation and incident playbooks
+├── .agents/              # Agent-specific config and notes (Claude Code, VS Code, Codex)
+│   └── mcp/              #   MCP server configs and setup notes
+├── docs/
+│   └── templates/        # Reusable document templates (PRD, ADR, …)
+├── AGENTS.md             # Global conventions — commits, branches, review priorities
+├── CONTEXT.md            # Stub — project context is per-project, not per-repo
+├── LICENSE.md            # MIT
+└── README.md            # This file
 ```
-
-> The layout is a work in progress and will shift as the collection grows.
 
 ---
 
-## Usage 🚀
+## Conventions 📐
 
-Each directory is self-contained — copy what you need into a project, or point your agent's config at it directly. Individual skills and workflows carry their own notes where setup is non-obvious.
+- **Commits**: Conventional commits (`feat:`, `fix:`, `chore:`, `refactor:`, …), enforced with commitlint.
+- **Branches**: `feature/<name>`, `bugfix/<name>`.
+
+Full detail in [AGENTS.md](AGENTS.md).
 
 ---
 
@@ -54,5 +95,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) fi
 
 ## Acknowledgments 🙌
 
-- Named **Workbench** for the obvious reason — it is where the tools are kept and kept sharp.
+- Named **Workbench** — where the tools are kept, and kept sharp.
 - Built with ❤️ for coding agents.
