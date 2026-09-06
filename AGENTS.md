@@ -3,6 +3,11 @@
 Global conventions for any coding agent working in my repos. Skills and
 project `CONTEXT.md` files build on this — they don't restate it.
 
+This file is the cross-tool source of truth. Claude Code, Codex, and other agents
+all read `AGENTS.md` — put a convention here once instead of duplicating it into
+tool-specific config. Per-project specifics (domain glossary, stack, deviations)
+go in that project's `CONTEXT.md` (see the stub in this repo).
+
 ## Commits
 
 - Conventional Commits, enforced with commitlint.
@@ -44,3 +49,32 @@ Stack-specific checks and tooling live in `skills/pr-review/<language>.md`.
   skills in `skills/docs/` and `skills/debugging/`.
 - ADRs are numbered and immutable once accepted — supersede, don't edit.
 - Postmortems are blameless: systems and decisions, never people.
+- Each project keeps a `CONTEXT.md` with a living domain glossary (ubiquitous
+  language). Use the shared term; don't invent synonyms.
+
+## Planning multi-session work
+
+- A change that spans more than one session gets broken into phases first
+  (`skills/planning/phased-delivery.md`).
+- Every phase has a **non-goals** list, a **checkable** definition of done, and a
+  **git tag or merged PR** as its boundary. Slice vertically (tracer bullets),
+  not by layer. Confirm the phase list before starting.
+
+## Before committing
+
+- On any session that touched code, run the `deslopify` pass
+  (`skills/quality/deslopify.md`) before the commit — subtractive only.
+
+## Rejected ideas
+
+- Decisions to *not* do something live in `.out-of-scope/` as short files, not in
+  memory and not deleted. Check there before re-proposing something; add a file
+  when a direction is ruled out.
+
+## Tooling
+
+- MCP servers: configs and per-client setup in `.agents/mcp/` — Context7 (library
+  docs), DeepWiki (unfamiliar repos).
+- GitHub (PR / issue / release history) goes through the `gh` CLI, not an MCP
+  server: `.agents/github-cli.md`.
+- External skill sets worth installing (Matt Pocock's, etc.): `.agents/external-skills.md`.

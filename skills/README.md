@@ -7,9 +7,11 @@ file that assumes the conventions in [`../AGENTS.md`](../AGENTS.md).
 | ---------------- | ------------------------------------------------------- | ------- |
 | `pr-review/`     | PR review by stack (see below)                          | ready   |
 | `docs/`          | Doc generation — PRD, ADR                               | ready   |
+| `planning/`      | Phased delivery of multi-session work                   | ready   |
 | `scaffolding/`   | Service and module bootstrapping                        | ready   |
 | `release/`       | Changelog and release-notes routines                   | ready   |
 | `debugging/`     | Investigation flows and incident write-ups             | ready   |
+| `quality/`       | Post-writing cleanup (deslopify)                        | ready   |
 
 ## pr-review
 
@@ -33,6 +35,12 @@ to its §4–§5 and add a stack-specific checklist.
 | `write-prd.md` | Product requirements document | `PRD.md`   |
 | `write-adr.md` | Architecture decision record  | `ADR.md`   |
 
+## planning
+
+| Skill                | Use for                                                       |
+| -------------------- | ---------------------------------------------------------- |
+| `phased-delivery.md` | Split multi-session work into vertical phases with non-goals, checkable done-definitions, and tag/merge boundaries |
+
 ## scaffolding
 
 | Skill                       | Use for                                          |
@@ -52,6 +60,12 @@ to its §4–§5 and add a stack-specific checklist.
 | -------------------------- | ------------------------------------------------- |
 | `investigate-bug.md`       | Reproduce → isolate → hypothesis → trace → fix    |
 | `write-incident-report.md` | Blameless postmortem (template `POSTMORTEM.md`)   |
+
+## quality
+
+| Skill          | Use for                                                       |
+| -------------- | ---------------------------------------------------------- |
+| `deslopify.md` | Strip AI slop from freshly written code — subtractive only, run before commit |
 
 ## Installing a skill
 

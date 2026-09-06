@@ -111,13 +111,15 @@ PRD template. Copy to docs/prd/<slug>.md and fill in.
 
 ## 🚀 Rollout plan
 
-> _How this reaches production safely, and how it can be undone._
+> _How this reaches production safely, and how it can be undone. Each phase gets a
+> checkable gate and a real rollback point (tag / merged PR). For the engineering
+> breakdown, see `skills/planning/phased-delivery.md`._
 
-| Phase | Scope                | Gate to advance |
-| ----- | -------------------- | --------------- |
-| 1     | [internal / flag off] | [criteria]      |
-| 2     | [% rollout / beta]    | [criteria]      |
-| 3     | [GA]                  | —               |
+| Phase | Scope                | Gate to advance (checkable) | Rollback point |
+| ----- | -------------------- | --------------------------- | -------------- |
+| 1     | [internal / flag off] | [criteria]                  | [tag / PR]     |
+| 2     | [% rollout / beta]    | [criteria]                  | [tag / PR]     |
+| 3     | [GA]                  | —                           | —              |
 
 - **Feature flag** — [name / default]
 - **Migration** — [schema/data changes, backfill, order of operations]
