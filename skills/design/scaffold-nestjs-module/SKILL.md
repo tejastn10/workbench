@@ -6,7 +6,7 @@ description: Add a new feature module to an existing NestJS service following Te
 # Scaffold a NestJS module
 
 Matches the layout in `hearth` / `ember` (and the review conventions in
-[`../pr-review/nestjs-backend-pr-review.md`](../pr-review/nestjs-backend-pr-review.md)).
+`pr-review/nestjs-backend-pr-review`).
 
 ## Layout
 
