@@ -5,7 +5,7 @@ description: Draft an Architecture Decision Record using Tejas's template — nu
 
 # Write an ADR
 
-Fills in [`docs/templates/ADR.md`](../../docs/templates/ADR.md).
+Fills in [`docs/templates/ADR.md`](../../../docs/templates/ADR.md).
 
 ## When to use
 

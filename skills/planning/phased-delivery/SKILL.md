@@ -8,7 +8,7 @@ description: Break a multi-session plan into phases that each fit one context wi
 For work too big for one session. The goal is that no session ever has to hold
 more than one phase's worth of decisions. Pattern adapted from
 [mattpocock/skills](https://github.com/mattpocock/skills) (`to-tickets`,
-`wayfinder`, phase boundaries) — see [`../../.agents/external-skills.md`](../../.agents/external-skills.md)
+`wayfinder`, phase boundaries) — see [`.agents/external-skills.md`](../../../.agents/external-skills.md)
 to install those directly.
 
 ## The three rules that matter most

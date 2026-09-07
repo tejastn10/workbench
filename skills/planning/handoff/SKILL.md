@@ -5,7 +5,7 @@ description: Compact the current session into a portable handoff document so a f
 
 # Handoff
 
-Adapted from [mattpocock/skills](https://github.com/mattpocock/skills) `handoff`
+Adapted from [mattpocock/skills](https://github.com/mattpocock/skills) `planning/handoff`
 (MIT).
 
 Write a handoff document so a fresh agent can continue this work with no shared

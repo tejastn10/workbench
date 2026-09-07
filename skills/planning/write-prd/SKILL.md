@@ -5,7 +5,7 @@ description: Draft a PRD using Tejas's template and house conventions — table 
 
 # Write a PRD
 
-Fills in [`docs/templates/PRD.md`](../../docs/templates/PRD.md). The template is the
+Fills in [`docs/templates/PRD.md`](../../../docs/templates/PRD.md). The template is the
 source of truth for structure and formatting — don't restructure it.
 
 ## When to use

@@ -9,7 +9,7 @@ Adapted from [mattpocock/skills](https://github.com/mattpocock/skills) `grill-me
 `grilling` (MIT). The point: the most common failure is the agent starting to build
 before it understands the problem. This closes that gap first.
 
-Run this before [`phased-delivery.md`](phased-delivery.md), before `write-prd`,
+Run this before `planning/phased-delivery`, before `planning/write-prd`,
 before implementing anything non-trivial.
 
 ## How it works
@@ -61,9 +61,9 @@ round. A question whose answer depends on another still-open question belongs to
 
 Hand off to the right next step:
 
-- Multi-session build → [`phased-delivery.md`](phased-delivery.md).
-- Needs a written spec → `skills/docs/write-prd.md`.
-- A decision worth recording → `skills/docs/write-adr.md`.
+- Multi-session build → `planning/phased-delivery`.
+- Needs a written spec → `planning/write-prd`.
+- A decision worth recording → `planning/write-adr`.
 - Want the interview to also draft `CONTEXT.md` + ADRs as it goes → use Matt's
   `grill-with-docs` (install via the plugin, see `.agents/external-skills.md`).
 
