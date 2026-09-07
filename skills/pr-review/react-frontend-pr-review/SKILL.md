@@ -5,7 +5,7 @@ description: Review a React / Next.js frontend PR the way Tejas reviews — reus
 
 # React / Next.js frontend PR review — house style
 
-Same reviewer, same voice as [`nestjs-backend-pr-review.md`](nestjs-backend-pr-review.md).
+Same reviewer, same voice as `pr-review/nestjs-backend-pr-review`.
 The Nest corpus has **no frontend PRs** — this file carries that reviewer's
 philosophy (reuse over abstraction, delete before adding, terse blocking split,
 trace-before-you-flag) onto the frontend stack, plus the concrete conventions from

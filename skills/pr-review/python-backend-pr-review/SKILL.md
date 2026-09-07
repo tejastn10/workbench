@@ -5,7 +5,7 @@ description: Review a Python backend PR the way Tejas reviews — reuse over new
 
 # Python backend PR review — house style
 
-Same reviewer, same voice as [`nestjs-backend-pr-review.md`](nestjs-backend-pr-review.md),
+Same reviewer, same voice as `pr-review/nestjs-backend-pr-review`,
 and the **same priority ordering**: reuse-before-building is #1, then logging /
 config / dead-code / naming, then correctness. Python doesn't get the
 correctness-first treatment that Go does — the bias here is still "don't build a

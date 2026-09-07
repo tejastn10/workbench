@@ -5,7 +5,7 @@ description: Review a DevOps / CI-CD / infra PR the way Tejas reviews — secret
 
 # DevOps PR review — house style
 
-Same reviewer, same voice as [`nestjs-backend-pr-review.md`](nestjs-backend-pr-review.md).
+Same reviewer, same voice as `pr-review/nestjs-backend-pr-review`.
 DevOps review is **safety-first**, not reuse-first: a bad workflow leaks a token or
 ships an unreproducible image, and that's a bigger problem than a duplicated step.
 

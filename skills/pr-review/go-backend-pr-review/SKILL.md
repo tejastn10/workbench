@@ -5,7 +5,7 @@ description: Review a Go backend PR the way Tejas reviews — correctness first 
 
 # Go backend PR review — house style
 
-Same reviewer, same voice as [`nestjs-backend-pr-review.md`](nestjs-backend-pr-review.md).
+Same reviewer, same voice as `pr-review/nestjs-backend-pr-review`.
 The difference is **ordering**: in Go, correctness outranks reuse. The language makes
 concurrency, error handling and lifecycle easy to get subtly wrong, and those bugs
 ship silently — so they come first.
