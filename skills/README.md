@@ -1,92 +1,56 @@
 # skills
 
-Agent skills, organized by category. Each skill is a self-contained Markdown
-file that assumes the conventions in [`../AGENTS.md`](../AGENTS.md).
+Agent skills, organized by category. Each skill is a directory
+(`<category>/<name>/`) containing a `SKILL.md` with `name` / `description`
+frontmatter — the Claude Code plugin format. Skills assume the conventions in
+[`../AGENTS.md`](../AGENTS.md). Each category folder has its own README.
 
-| Category         | Purpose                                                  | Status  |
-| ---------------- | ------------------------------------------------------- | ------- |
-| `pr-review/`     | PR review by stack (see below)                          | ready   |
-| `docs/`          | Doc generation — PRD, ADR                               | ready   |
-| `planning/`      | Phased delivery of multi-session work                   | ready   |
-| `scaffolding/`   | Service and module bootstrapping                        | ready   |
-| `release/`       | Changelog and release-notes routines                   | ready   |
-| `debugging/`     | Investigation flows and incident write-ups             | ready   |
-| `quality/`       | Post-writing cleanup (deslopify, tdd)                   | ready   |
-| `security/`      | Security review and dependency audit                    | ready   |
+`workflows/` is the orchestration layer — a workflow skill invokes a *sequence* of
+the others for a whole task (feature, change, incident, onboarding). See
+[`workflows/README.md`](workflows/README.md) and the composition guide,
+[`../docs/composing-skills.md`](../docs/composing-skills.md).
 
-## pr-review
+| Category         | What it covers                                             |
+| ---------------- | ------------------------------------------------------- |
+| `workflows/`     | **Orchestrators** — invoke the right sequence of skills for a whole task |
+| `planning/`      | Align, investigate, break down, and write down — before building |
+| `design/`        | API / event contracts, data schema, scaffolding new structure |
+| `pr-review/`     | Reviewing PRs by stack (NestJS, Go, Python, React, DevOps) |
+| `quality/`       | Cleanup, TDD, refactors, and clean git history             |
+| `data/`          | Postgres / Mongo / BigQuery / Redis — indexing, aggregation, cache |
+| `queues/`        | SQS, Kafka / MSK, BullMQ — lifecycle, DLQ, partitioning     |
+| `observability/` | OTEL + LGTM stack — instrument, debug with traces, alerts   |
+| `deployment/`    | Migrations, rollout, release, rollback, hotfix              |
+| `incident/`      | Bug investigation, live incident response, on-call, postmortem |
+| `security/`      | Whole-surface security review, dependency audit             |
+| `meta/`          | Maintaining the workbench; building review skills from a corpus |
 
-Distilled from a corpus of ~120 real review comments (NestJS/TS backend), then
-carried onto the other stacks. `nestjs-backend-pr-review.md` is the canonical
-reference for voice, severity markers, and review structure; the others point back
-to its §4–§5 and add a stack-specific checklist.
+## Installing
 
-| Skill                            | Stack                        | Priority order    |
-| -------------------------------- | ---------------------------- | ----------------- |
-| `nestjs-backend-pr-review.md`    | NestJS / TypeScript, Go SDK  | reuse-first       |
-| `go-backend-pr-review.md`        | Go services, CLIs, consumers | correctness-first |
-| `python-backend-pr-review.md`    | Python / Poetry, FastAPI     | reuse-first       |
-| `react-frontend-pr-review.md`    | React / Next.js / Vite       | reuse-first       |
-| `devops-pr-review.md`            | GitHub Actions, Docker, CI   | safety-first      |
-| `distill-review-style.md`        | *meta* — build a review skill from your own PR comment corpus | — |
-
-## docs
-
-| Skill          | Produces                      | Template   |
-| -------------- | ---------------------------- | ---------- |
-| `write-prd.md` | Product requirements document | `PRD.md`   |
-| `write-adr.md` | Architecture decision record  | `ADR.md`   |
-
-## planning
-
-| Skill                | Use for                                                       |
-| -------------------- | ---------------------------------------------------------- |
-| `grill.md`           | Relentless interview to align on a plan before building (adapted from Matt Pocock) |
-| `phased-delivery.md` | Split multi-session work into vertical phases with non-goals, checkable done-definitions, and tag/merge boundaries |
-| `handoff.md`         | Compact a session into a portable handoff doc (adapted from Matt Pocock) |
-
-## scaffolding
-
-| Skill                       | Use for                                          |
-| --------------------------- | ----------------------------------------------- |
-| `scaffold-project.md`       | New repo / service — pick a template, apply the baseline |
-| `scaffold-nestjs-module.md` | New feature module in an existing Nest service   |
-
-## release
-
-| Skill            | Use for                                                     |
-| ---------------- | --------------------------------------------------------- |
-| `cut-release.md` | Next semver from commits, grouped release notes, tag      |
-
-## debugging
-
-| Skill                      | Use for                                            |
-| -------------------------- | ------------------------------------------------- |
-| `investigate-bug.md`       | Reproduce → isolate → hypothesis → trace → fix    |
-| `write-incident-report.md` | Blameless postmortem (template `POSTMORTEM.md`)   |
-
-## quality
-
-| Skill          | Use for                                                       |
-| -------------- | ---------------------------------------------------------- |
-| `deslopify.md` | Strip AI slop from freshly written code — subtractive only, run before commit |
-| `tdd.md`       | Red → green loop that produces tests worth keeping (adapted from Matt Pocock) |
-
-## security
-
-| Skill                   | Use for                                                   |
-| ----------------------- | ------------------------------------------------------- |
-| `security-review.md`    | Whole-surface pass — deps, secrets, races, authz, injection, SSRF |
-| `audit-dependencies.md` | Per-stack audit (`npm audit` / `govulncheck` / `pip-audit`), triage, safe updates |
-
-## Installing skills
+**As a plugin** (skills + slash commands + MCP servers):
 
 ```bash
-../scripts/install-skills.sh            # symlink all → ~/.claude/skills/<name>/SKILL.md
-../scripts/install-skills.sh --list     # what's available
-../scripts/install-skills.sh --project /path/to/repo   # copy into a repo's .claude + .github
+claude plugins marketplace add tejastn10/workbench
+claude plugins install workbench@tejastn10
 ```
 
-Claude Code and VS Code agent mode both load the `SKILL.md` format. Codex has no
-skills dir — reference the path from `AGENTS.md`. Full walkthrough:
-[`../docs/USAGE.md`](../docs/USAGE.md).
+**Or symlink the skills** (editable):
+
+```bash
+../scripts/install-skills.sh            # link every skill dir → ~/.claude/skills/<name>
+../scripts/install-skills.sh --list
+../scripts/install-skills.sh --project /path/to/repo
+```
+
+See [`../docs/plugin.md`](../docs/plugin.md) and [`../docs/USAGE.md`](../docs/USAGE.md).
+
+## Conventions for skill files
+
+- One skill = one directory `<category>/<name>/` with a `SKILL.md` inside.
+- `name:` matches the directory name, unique across the repo.
+- `description:` is the router — pack it with real trigger phrases + "Use when …".
+- Terse, mechanism-focused body; a "what to let slide" section for review skills;
+  end with `## Anti-patterns`. Reference other skills as `` `category/name` ``.
+- Adapted-from-elsewhere skills start a body line with `Adapted from [<source>]`.
+- Add the new dir path to the `skills` array in `../.claude-plugin/plugin.json`.
+- See `meta/write-skill`.

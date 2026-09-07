@@ -4,9 +4,9 @@ Reusable document templates. Copy into a project, don't edit in place.
 
 | Template        | Purpose                        | Filled in by                          |
 | --------------- | ------------------------------ | ------------------------------------- |
-| `PRD.md`        | Product requirements document  | `skills/docs/write-prd.md`            |
-| `ADR.md`        | Architecture decision record   | `skills/docs/write-adr.md`            |
-| `POSTMORTEM.md` | Blameless incident report      | `skills/debugging/write-incident-report.md` |
+| `PRD.md`        | Product requirements document  | `planning/write-prd`            |
+| `ADR.md`        | Architecture decision record   | `planning/write-adr`            |
+| `POSTMORTEM.md` | Blameless incident report      | `incident/postmortem` |
 
 ## Conventions
 

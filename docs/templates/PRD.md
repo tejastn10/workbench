@@ -113,7 +113,7 @@ PRD template. Copy to docs/prd/<slug>.md and fill in.
 
 > _How this reaches production safely, and how it can be undone. Each phase gets a
 > checkable gate and a real rollback point (tag / merged PR). For the engineering
-> breakdown, see `skills/planning/phased-delivery.md`._
+> breakdown, see `planning/phased-delivery`._
 
 | Phase | Scope                | Gate to advance (checkable) | Rollback point |
 | ----- | -------------------- | --------------------------- | -------------- |

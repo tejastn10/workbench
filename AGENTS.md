@@ -46,16 +46,23 @@ Stack-specific checks and tooling live in `skills/pr-review/<language>.md`.
 ## Docs
 
 - PRDs, ADRs, and postmortems use the templates in `docs/templates/`, driven by the
-  skills in `skills/docs/` and `skills/debugging/`.
+  skills in `skills/planning/` and `skills/incident/`.
 - ADRs are numbered and immutable once accepted — supersede, don't edit.
 - Postmortems are blameless: systems and decisions, never people.
 - Each project keeps a `CONTEXT.md` with a living domain glossary (ubiquitous
   language). Use the shared term; don't invent synonyms.
 
+## Composing skills
+
+- Most tasks need several skills in order. Describe the task and the matching
+  **workflow** skill (`skills/workflows/`) is loaded and walks the sequence:
+  `new-feature`, `ship-change`, `handle-incident`, `adopt-repo`.
+- The concept, trigger methods, and an example: `docs/composing-skills.md`.
+
 ## Planning multi-session work
 
 - A change that spans more than one session gets broken into phases first
-  (`skills/planning/phased-delivery.md`).
+  (`planning/phased-delivery`).
 - Every phase has a **non-goals** list, a **checkable** definition of done, and a
   **git tag or merged PR** as its boundary. Slice vertically (tracer bullets),
   not by layer. Confirm the phase list before starting.
@@ -63,7 +70,7 @@ Stack-specific checks and tooling live in `skills/pr-review/<language>.md`.
 ## Before committing
 
 - On any session that touched code, run the `deslopify` pass
-  (`skills/quality/deslopify.md`) before the commit — subtractive only.
+  (`quality/deslopify`) before the commit — subtractive only.
 
 ## Security
 
