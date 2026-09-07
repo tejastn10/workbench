@@ -34,7 +34,7 @@ Run the audit for every ecosystem the change touches:
 - [ ] A dependency pinned loosely (`^` widened to `*`, or a range removed) → tighten.
 - [ ] A new dependency: is it maintained (last release, open-CVE count), and is it
       worth the transitive surface for what it does?
-- See `skills/security/audit-dependencies.md` for triage + safe-update flow.
+- See `security/audit-dependencies` for triage + safe-update flow.
 
 ## 2. Secrets leakage
 
@@ -46,10 +46,10 @@ Run the audit for every ecosystem the change touches:
       cookies, the OTP itself, a full connection URL with credentials → **blocking**.
 - [ ] Secret reachable from the **client bundle** — `NEXT_PUBLIC_*` on anything
       sensitive, a server key imported into a `"use client"` file → **blocking**
-      (see `skills/pr-review/react-frontend-pr-review.md`).
+      (see `pr-review/react-frontend-pr-review`).
 - [ ] Secret passed as a Docker build `ARG` (persists in image history) or echoed
       in a GitHub Actions step, or a workflow that exposes `secrets` to
-      fork-triggered code → **blocking** (see `skills/pr-review/devops-pr-review.md`).
+      fork-triggered code → **blocking** (see `pr-review/devops-pr-review`).
 - [ ] Error responses / stack traces returned to the client that leak internal
       paths, queries, or infra detail.
 
