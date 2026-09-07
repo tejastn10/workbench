@@ -5,7 +5,7 @@ description: Test-driven development — the red → green loop done so it produ
 
 # Test-driven development
 
-Adapted from [mattpocock/skills](https://github.com/mattpocock/skills) `tdd` (MIT),
+Adapted from [mattpocock/skills](https://github.com/mattpocock/skills) `quality/tdd` (MIT),
 inlined and trimmed to fit this repo's conventions.
 
 When exploring the codebase first, read `CONTEXT.md` if it exists so test names and
