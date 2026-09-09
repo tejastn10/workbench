@@ -58,7 +58,7 @@ trace.** Quote the line, the caller, the state, and what happens on the next cyc
 - **Related** — other places the pattern appears.
 
 If the bug caused user-facing impact, follow with
-[`write-incident-report.md`](write-incident-report.md).
+`incident/postmortem`.
 
 ## Anti-patterns
 
