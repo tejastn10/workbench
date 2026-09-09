@@ -1,11 +1,11 @@
 ---
-name: write-incident-report
-description: Write a blameless postmortem using Tejas's template — table header, timezone-stamped timeline, root cause traced end to end, owned and dated action items. Systems and decisions, never people. Use when asked to "write a postmortem", "do the incident writeup", "RCA for X", after a SEV is resolved.
+name: postmortem
+description: Write a blameless postmortem using the template — table header, timezone-stamped timeline, root cause traced end to end, owned and dated action items. Systems and decisions, never people. Use when asked to "write a postmortem", "do the incident writeup", "RCA for X", after a SEV is resolved.
 ---
 
-# Write an incident report
+# Postmortem
 
-Fills in [`../../docs/templates/POSTMORTEM.md`](../../docs/templates/POSTMORTEM.md).
+Fills in [`docs/templates/POSTMORTEM.md`](../../../docs/templates/POSTMORTEM.md).
 
 ## Principles
 
@@ -13,7 +13,7 @@ Fills in [`../../docs/templates/POSTMORTEM.md`](../../docs/templates/POSTMORTEM.
   roles ("the on-call", "the deploy") not names. If a human action contributed, the
   finding is "the system allowed / didn't catch it", not "person X did Y".
 - **Mechanism over narrative.** The root cause is a traced chain, the same standard
-  as [`investigate-bug.md`](investigate-bug.md) — which change, which condition,
+  as `incident/investigate-bug` — which change, which condition,
   which interaction.
 - **Timely.** Write within a few days, while the timeline is still recoverable from
   memory and chat history.
