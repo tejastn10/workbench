@@ -11,13 +11,16 @@ needed; the file format is shared.
 
 ## Skills
 
+This repo's skills are `skills/<category>/<name>/SKILL.md` — the Agent Skills open
+format, so the tool-agnostic `skills` CLI installs them into Codex:
+
 ```bash
-npx skills@latest add mattpocock/skills      # installs to Codex too, pick which
+npx skills@latest add tejastn10/workbench    # pick which skills, target = Codex
+npx skills@latest add mattpocock/skills      # Matt's set too
 ```
 
-This repo's skills are plain Markdown — reference a skill's path in `AGENTS.md`,
-or paste it in for a one-off. There's no dedicated skills directory the way Claude
-Code has; they act as instructions/context.
+Or reference a skill's path from `AGENTS.md`, or paste one in for a one-off.
+The `.claude-plugin/` manifest is Claude-Code-only and Codex ignores it.
 
 ## MCP — `~/.codex/config.toml`
 

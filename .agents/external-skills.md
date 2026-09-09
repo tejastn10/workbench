@@ -10,14 +10,18 @@ a ~30-skill set for "real engineering, not vibe coding". Two ways to use it here
 
 ## Adapted into this repo
 
-| This repo                        | From Matt's         | Changes                                        |
-| -------------------------------- | ------------------- | -------------------------------------------- |
-| `skills/planning/grill.md`       | `grill-me` + `grilling` | self-contained; hands off to our phased-delivery / write-prd / write-adr |
-| `skills/planning/handoff.md`     | `handoff`           | self-contained; references our phase-boundary notes |
-| `skills/quality/tdd.md`          | `tdd`               | inlined `tests.md` / `mocking.md` / `codebase-design` refs; stack conventions from our pr-review skills |
+| This repo                             | From Matt's             | Notes                                    |
+| ------------------------------------- | ----------------------- | -------------------------------------- |
+| `planning/grill`            | `grill-me` + `grilling`  | self-contained; hands to phased-delivery / write-prd |
+| `planning/orient`           | `wayfinder` (spirit)     | adds the `CONTEXT.md` output            |
+| `planning/spike`            | `prototype`              | timeboxed, delete-after, write-up rule  |
+| `planning/handoff`          | `handoff`                | self-contained                          |
+| `quality/tdd`               | `tdd`                    | inlined the `tests.md` / `mocking.md` refs |
+| `quality/resolve-merge-conflicts` | `resolving-merge-conflicts` | lockfile-regeneration specifics    |
+| `meta/write-skill`          | `writing-for-agents` (spirit) | this repo's frontmatter + house style |
 
-Keep these in sync manually when Matt's change materially — check a couple of times
-a year.
+Every adapted skill starts a body line with `Adapted from [mattpocock/skills]`.
+Re-check against upstream a couple of times a year.
 
 ## Install from upstream
 
@@ -35,18 +39,17 @@ npx skills@latest add mattpocock/skills
 
 | Skill | Why |
 | --- | --- |
-| `grill-with-docs` | grilling that also drafts `CONTEXT.md` + ADRs as it goes — the richer version of our `grill` |
+| `grill-with-docs` | grilling that also drafts `CONTEXT.md` + ADRs as it goes — richer than our `grill` + `write-adr` |
 | `domain-modeling` | builds the ubiquitous-language glossary our `CONTEXT.md` wants |
-| `wayfinder` / `to-tickets` / `to-spec` / `triage` | turning a goal into tracked, triaged, blocking-edge work |
-| `research` / `wait-what` | structured investigation / "explain what just happened" |
-| `resolving-merge-conflicts` | structured conflict resolution |
+| `to-tickets` / `to-spec` / `triage` | turning a goal into tracked, triaged, blocking-edge work (needs `/setup-matt-pocock-skills`) |
+| `wait-what` | "explain what just happened / changed" — pairs with our `deslopify` |
 
 **Skip — we have our own, grounded version:**
 
 | Matt's | Ours |
 | --- | --- |
 | `code-review` | `skills/pr-review/*` (built from a real 120-comment corpus, per stack) |
-| `diagnosing-bugs` | `skills/debugging/investigate-bug.md` |
+| `diagnosing-bugs` | `incident/investigate-bug` |
 | `improve-codebase-architecture` / `codebase-design` | overlaps `skills/quality/` intent |
 
 ## `mattpocock/agent-rules-books`
