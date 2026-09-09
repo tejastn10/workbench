@@ -5,7 +5,7 @@ description: Build (or extend) a PR-review skill from a real corpus of the revie
 
 # Distill a review skill from a comment corpus
 
-This is how `nestjs-backend-pr-review.md` was made. Run it wherever the target
+This is how `pr-review/nestjs-backend-pr-review` was made. Run it wherever the target
 repos are reachable by `gh` (your work laptop for private-org repos). Output is a
 new `skills/pr-review/<stack>-pr-review.md` in the same format as the NestJS one.
 
