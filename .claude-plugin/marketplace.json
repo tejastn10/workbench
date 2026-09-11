@@ -1,0 +1,25 @@
+{
+  "name": "tejastn10",
+  "owner": {
+    "name": "Tejas Nikhar",
+    "url": "https://github.com/tejastn10"
+  },
+  "description": "Tejas Nikhar's agent skills, workflows, and MCP setup for coding agents — as an installable Claude Code plugin.",
+  "plugins": [
+    {
+      "name": "workbench",
+      "source": "./",
+      "description": "Agent skills for real engineering — PR review (per stack), planning, design, data (Postgres/Mongo/BigQuery/Redis), queues (SQS/Kafka/BullMQ), observability, deployment, incident response, security, and workflow orchestration.",
+      "category": "engineering",
+      "keywords": [
+        "claude-code",
+        "ai-agents",
+        "developer-tools",
+        "skills",
+        "pr-review",
+        "workflows",
+        "productivity"
+      ]
+    }
+  ]
+}
