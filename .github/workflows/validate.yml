@@ -1,0 +1,36 @@
+name: Validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, edited]
+
+jobs:
+  skills:
+    name: Skills & manifests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Validate skills + plugin manifest
+        run: node scripts/validate-skills.mjs
+
+  commits:
+    name: Conventional commits
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: commitlint
+        uses: wagoid/commitlint-github-action@v6
