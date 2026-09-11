@@ -1,0 +1,34 @@
+# Local git hooks. One-time: `brew install lefthook && lefthook install`
+# (matches the husky setup in the other repos — lefthook is a single binary,
+# no root package.json needed).
+
+pre-commit:
+  parallel: true
+  commands:
+    validate-skills:
+      run: node scripts/validate-skills.mjs
+    site-lint:
+      # only when site/ files are staged
+      glob: "site/**/*.{ts,tsx}"
+      run: cd site && npx --offline biome check {staged_files}
+
+commit-msg:
+  commands:
+    conventional:
+      run: >-
+        grep -qE '^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\([a-z0-9 /_-]+\))?!?: .+'
+        {1} || {
+          echo "✗ commit message must be Conventional Commits — e.g. 'feat(planning): add grill skill'";
+          exit 1;
+        }
+
+pre-push:
+  commands:
+    branch-name:
+      run: >-
+        BRANCH=$(git rev-parse --abbrev-ref HEAD);
+        [ "$BRANCH" = "main" ] ||
+        echo "$BRANCH" | grep -qE '^(feature|bugfix|improvement)/.+' || {
+          echo "✗ branch must be main or feature/ | bugfix/ | improvement/ — got '$BRANCH'";
+          exit 1;
+        }
