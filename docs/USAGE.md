@@ -37,31 +37,46 @@ ln -sf ~/workbench/AGENTS.md ~/.codex/AGENTS.md
 
 ---
 
-## 3. Install the skills
+## 3. Install the skills {#install-anywhere}
 
-Skills are plain Markdown with `name` / `description` frontmatter. Claude Code and
-VS Code agent mode both load the `SKILL.md` format; the install script produces it.
+Skills are `skills/<category>/<name>/SKILL.md` — the **Agent Skills open format**.
+Pick the path that fits your agent; the repo isn't locked to any of them.
 
-```bash
-~/workbench/scripts/install-skills.sh            # symlink all skills → ~/.claude/skills/<name>/SKILL.md
-~/workbench/scripts/install-skills.sh --dry-run  # preview
-~/workbench/scripts/install-skills.sh --list     # list what's available
-```
-
-Symlinks mean `git pull` in `~/workbench` updates every skill in place.
-
-**VS Code** reads the same `SKILL.md` format from the user profile or `.github/` —
-point it at `~/.claude/skills`, or drop copies into a project (below).
-
-**Per project / another machine** — copies, not symlinks:
+### Tool-agnostic — `npx skills` (Claude Code, Codex, Cursor, Copilot, Windsurf, …)
 
 ```bash
-~/workbench/scripts/install-skills.sh --project /path/to/repo
-# writes repo/.claude/skills/*/SKILL.md and repo/.github/skills/*/SKILL.md
+npx skills@latest add tejastn10/workbench     # pick skills + which agents to install into
 ```
 
-**Codex** has no skills directory — reference a skill's path from `AGENTS.md`, or
-paste it in for a one-off.
+The `skills` CLI reads the `SKILL.md` files and drops them into each agent's own
+skills location. This is the route to use if you're on — or moving to — Codex.
+
+### Claude Code plugin (managed, versioned, auto-updating)
+
+```bash
+claude plugins marketplace add tejastn10/workbench
+claude plugins install workbench@tejastn10
+```
+
+Bundles skills + slash commands + MCP servers. See [`plugin.md`](plugin.md).
+
+### Symlink the skill directories (editable, `git pull` to update)
+
+```bash
+~/workbench/scripts/install-skills.sh            # link every skill dir → ~/.claude/skills/<name>
+~/workbench/scripts/install-skills.sh --list
+~/workbench/scripts/install-skills.sh --project /path/to/repo   # copy into a repo's .claude + .github
+```
+
+VS Code agent mode reads the same `<name>/SKILL.md` format from the user profile
+or `.github/`.
+
+### Codex
+
+`npx skills add` (above) installs skills for Codex. Plus: symlink `AGENTS.md` to
+`~/.codex/AGENTS.md` for the conventions, MCP in `~/.codex/config.toml`. Codex has
+no slash commands, so the `commands/` wrappers don't carry — but the skills they
+wrap do, and Codex invokes them by description.
 
 ---
 
@@ -103,8 +118,6 @@ Verify: `/mcp` in a session, both `connected`.
 
 ---
 
----
-
 ## 6. Per project, once
 
 When you start using an agent in a new repo:
@@ -122,7 +135,7 @@ When you start using an agent in a new repo:
 The review skills are generated from a real corpus of your PR comments, not from
 best-practice lists. On the machine with access to the repos (your work laptop):
 
-> Run the `distill-review-style` skill (`skills/pr-review/distill-review-style.md`).
+> Run the `distill-review-style` skill (`meta/distill-review-style`).
 > It pulls your review comments with `gh`, categorises what you flag / let slide /
 > how you phrase it, and emits a `skills/pr-review/<stack>-pr-review.md`.
 
@@ -133,7 +146,7 @@ See §"Prompt to run on the work laptop" below for a copy-paste version.
 ## Prompt to run on the work laptop
 
 ```
-Read ~/workbench/skills/pr-review/distill-review-style.md and follow it.
+Read ~/workbench/skills/meta/distill-review-style/SKILL.md and follow it.
 
 Target: my review comments in the <ORG> org, repos <repo-a>, <repo-b>, <repo-c>,
 from the last 4 months. My GitHub login is <me>.
