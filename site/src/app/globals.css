@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+	--font-sans: var(--font-archivo), system-ui, -apple-system, sans-serif;
+	--font-display: var(--font-archivo-black), var(--font-archivo), system-ui, sans-serif;
+	--font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace;
+
+	--color-border: hsl(var(--border));
+	--color-input: hsl(var(--input));
+	--color-ring: hsl(var(--ring));
+	--color-background: hsl(var(--background));
+	--color-foreground: hsl(var(--foreground));
+	--color-primary: hsl(var(--primary));
+	--color-primary-foreground: hsl(var(--primary-foreground));
+	--color-secondary: hsl(var(--secondary));
+	--color-secondary-foreground: hsl(var(--secondary-foreground));
+	--color-muted: hsl(var(--muted));
+	--color-muted-foreground: hsl(var(--muted-foreground));
+	--color-accent: hsl(var(--accent));
+	--color-accent-foreground: hsl(var(--accent-foreground));
+	--color-card: hsl(var(--card));
+	--color-card-foreground: hsl(var(--card-foreground));
+
+	--radius-lg: 0rem;
+	--radius-md: 0rem;
+	--radius-sm: 0rem;
+}
+
+@layer base {
+	:root {
+		--background: 0 0% 100%;
+		--foreground: 0 0% 0%;
+		--card: 0 0% 100%;
+		--card-foreground: 0 0% 0%;
+		--primary: 0 0% 0%;
+		--primary-foreground: 0 0% 100%;
+		--secondary: 0 0% 93%;
+		--secondary-foreground: 0 0% 0%;
+		--muted: 0 0% 96%;
+		--muted-foreground: 0 0% 42%;
+		--accent: 0 0% 93%;
+		--accent-foreground: 0 0% 0%;
+		--border: 0 0% 85%;
+		--input: 0 0% 85%;
+		--ring: 0 0% 0%;
+	}
+
+	.dark {
+		--background: 0 0% 0%;
+		--foreground: 0 0% 100%;
+		--card: 0 0% 0%;
+		--card-foreground: 0 0% 100%;
+		--primary: 0 0% 100%;
+		--primary-foreground: 0 0% 0%;
+		--secondary: 0 0% 12%;
+		--secondary-foreground: 0 0% 100%;
+		--muted: 0 0% 9%;
+		--muted-foreground: 0 0% 48%;
+		--accent: 0 0% 14%;
+		--accent-foreground: 0 0% 100%;
+		--border: 0 0% 14%;
+		--input: 0 0% 14%;
+		--ring: 0 0% 65%;
+	}
+}
+
+@layer base {
+	*,
+	::after,
+	::before {
+		border-color: var(--color-border, currentColor);
+	}
+	* {
+		font-family: var(--font-sans);
+		line-height: 1.45;
+	}
+	.font-display {
+		font-family: var(--font-display);
+		font-weight: 400;
+		letter-spacing: -0.015em;
+		line-height: 1.03;
+	}
+	code,
+	pre,
+	kbd,
+	.bracket-row {
+		font-family: var(--font-mono);
+	}
+	html {
+		scroll-behavior: smooth;
+	}
+	body {
+		background: hsl(var(--background));
+		color: hsl(var(--foreground));
+		font-variant-emoji: text;
+		-webkit-font-smoothing: antialiased;
+	}
+	::selection {
+		background: hsl(var(--foreground));
+		color: hsl(var(--background));
+	}
+	button:not(:disabled),
+	[role="button"]:not(:disabled) {
+		cursor: pointer;
+	}
+	img,
+	video {
+		filter: grayscale(1);
+	}
+}
+
+/* ─── Section label ───────────────────────────────────────────── */
+.section-label {
+	font-family: var(--font-mono);
+	font-size: 0.7rem;
+	font-weight: 500;
+	letter-spacing: 0.09em;
+	text-transform: uppercase;
+	color: hsl(var(--muted-foreground));
+	display: block;
+}
+
+/* ─── Underline-slide link ────────────────────────────────────── */
+.underline-slide {
+	position: relative;
+	display: inline-block;
+}
+.underline-slide::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -2px;
+	height: 1px;
+	width: 100%;
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 0.25s ease;
+	background: hsl(var(--foreground));
+}
+.underline-slide:hover::after {
+	transform: scaleX(1);
+}
+
+/* ─── Code ────────────────────────────────────────────────────── */
+pre {
+	overflow-x: auto;
+	padding: 1rem 1.1rem;
+	background: hsl(var(--muted));
+	border: 1px solid hsl(var(--border));
+	font-size: 0.8rem;
+	line-height: 1.65;
+	tab-size: 2;
+}
+:not(pre) > code {
+	font-size: 0.82em;
+	background: hsl(var(--muted));
+	border: 1px solid hsl(var(--border));
+	padding: 0.08rem 0.32rem;
+}
+
+/* ─── Bracket field (animated nested-bracket marquee) ─────────── */
+@keyframes bracket-scroll {
+	from {
+		transform: translateX(0);
+	}
+	to {
+		transform: translateX(-50%);
+	}
+}
+.bracket-row {
+	white-space: nowrap;
+	will-change: transform;
+	animation: bracket-scroll linear infinite;
+}
+@keyframes bracket-breathe {
+	0%,
+	100% {
+		opacity: 0.06;
+	}
+	50% {
+		opacity: 0.14;
+	}
+}
+.bracket-breathe {
+	animation: bracket-breathe 6s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+	.bracket-row,
+	.bracket-breathe {
+		animation: none;
+	}
+}
