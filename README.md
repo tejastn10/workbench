@@ -17,35 +17,53 @@
 
 ## Features 🌟
 
-- **PR Review Skills**: Per-stack review skills (NestJS/TypeScript, Go, Python, React, DevOps) matched to my actual review style, not generic best practices.
-- **Doc Generation**: Reusable templates and skills for PRDs, ADRs, and postmortems.
-- **Service Scaffolding**: Bootstrapping new services and modules with my conventions baked in.
-- **Phased Delivery**: Splitting multi-session work into tracer-bullet phases with non-goals and real rollback points.
-- **Release Routines**: Conventional-commit-driven changelogs and release notes.
-- **Debugging Playbooks**: Structured investigation flows and incident write-ups.
-- **Security**: A whole-surface review pass and per-stack dependency audit.
-- **Deslopify**: A subtractive pass that strips AI slop from freshly written code before commit.
+- **13 skill categories** — workflows, planning, design, PR review, quality, git, data, queues, observability, deployment, incident, security, meta. Each grounded in real conventions, not generic best practice.
+- **Workflows**: orchestrator skills that invoke the right *sequence* of others for a whole task (feature, change, incident, repo onboarding).
+- **PR Review Skills**: Per-stack (NestJS/TypeScript, Go, Python, React, DevOps), distilled from ~120 real review comments.
+- **Data & infra**: Postgres/Mongo/BigQuery/Redis indexing and aggregation; SQS/Kafka/BullMQ lifecycle and DLQ; OTEL + the LGTM stack.
+- **Ship safely**: additive migrations, flag-gated cutovers, canary rollout, rollback, hotfix, incident response, blameless postmortems.
+- **Phased Delivery**: multi-session work as tracer-bullet phases with non-goals and real rollback points.
+- **Deslopify**: a subtractive pass that strips AI slop from freshly written code before commit.
+- **Doc templates**: PRD, ADR, POSTMORTEM — one house format, filled by skills.
 - **MCP Setup**: Context7 and DeepWiki configs with per-client setup notes (GitHub goes through `gh`).
-- **Global Conventions**: Commit, branch, and review standards in one place — see [AGENTS.md](AGENTS.md).
+- **Global Conventions**: commit, branch, and review standards in one place — see [AGENTS.md](AGENTS.md).
 
 ---
 
 ## Getting Started 🚀
 
-Full walkthrough: [`docs/USAGE.md`](docs/USAGE.md). The short version:
+Skills are the **Agent Skills open format** (`skills/<category>/<name>/SKILL.md`) and `AGENTS.md` is cross-tool — nothing is locked to one agent.
+
+**Any agent** — Claude Code, Codex, Cursor, Copilot, Windsurf, …:
+
+```bash
+npx skills@latest add tejastn10/workbench     # pick skills + which agents
+```
+
+**Claude Code plugin** — managed, versioned, with slash commands + MCP servers:
+
+```bash
+claude plugins marketplace add tejastn10/workbench
+claude plugins install workbench@tejastn10
+```
+
+**Or clone and symlink** (editable, `git pull` to update):
 
 ```bash
 git clone git@github.com:tejastn10/workbench.git ~/workbench
-~/workbench/scripts/install-skills.sh          # symlink skills → ~/.claude/skills/<name>/SKILL.md
+~/workbench/scripts/install-skills.sh
 ```
 
-Each skill is a self-contained Markdown file with `name` / `description` frontmatter, loaded by Claude Code and VS Code agent mode alike. Skills assume the conventions in `AGENTS.md`; if a project diverges, its own `CONTEXT.md` records the difference.
+Skills assume the conventions in `AGENTS.md`; if a project diverges, its own `CONTEXT.md` records the difference. Full walkthrough: [`docs/USAGE.md`](docs/USAGE.md) · plugin details: [`docs/plugin.md`](docs/plugin.md).
 
-### Installing a Skill ⚙️
+### Which route
 
-- **Global** — `scripts/install-skills.sh` symlinks every skill; `git pull` keeps them current.
-- **Per project** — `scripts/install-skills.sh --project /path/to/repo` copies them into `.claude/skills/` and `.github/skills/`.
-- **Codex** — reference a skill's path from `AGENTS.md`, or paste it in for a one-off.
+| Route | Tools | Notes |
+| --- | --- | --- |
+| `npx skills add` | Claude Code, Codex, Cursor, +30 | the portable one — use for Codex |
+| `claude plugins install` | Claude Code | + slash commands + MCP, auto-updates on `version` bump |
+| `scripts/install-skills.sh` | Claude Code, VS Code | symlinked & editable; `--project` copies into a repo |
+| reference `AGENTS.md` | Codex (native), all | the conventions, read directly |
 
 ### MCP Setup 🔌
 
@@ -63,40 +81,50 @@ Per-server notes (env vars, auth, gotchas) live alongside each config. GitHub ac
 
 ```bash
 workbench/
-├── skills/                 # Agent skills, organized by category
-│   ├── pr-review/          #   Per-stack PR review + distill-review-style
-│   ├── docs/               #   Doc generation (PRD, ADR)
-│   ├── planning/           #   grill, phased-delivery, handoff
-│   ├── scaffolding/        #   Service and module scaffolding
-│   ├── release/            #   Changelog and release routines
-│   ├── debugging/          #   Investigation and incident playbooks
-│   ├── quality/            #   deslopify, tdd
-│   └── security/           #   security-review, audit-dependencies
-├── scripts/
-│   └── install-skills.sh   # Wire skills into Claude Code / VS Code
-├── .agents/                # Agent-specific config and shared setup
-│   ├── mcp/                #   MCP server configs (Context7, DeepWiki)
-│   ├── claude-code/  vscode/  codex/   #   per-tool setup notes
-│   ├── github-cli.md       #   GitHub access via gh
-│   └── external-skills.md  #   Matt Pocock's skills — adapted + install pointers
-├── docs/
-│   ├── templates/          #   PRD, ADR, POSTMORTEM
-│   └── USAGE.md            #   How to install and use everything
-├── .out-of-scope/          # Decisions to NOT do something, kept not deleted
-├── AGENTS.md               # Global conventions — cross-tool source of truth
-├── CONTEXT.md              # Stub — per-project domain glossary + context
-├── LICENSE.md              # MIT
-└── README.md              # This file
+├── .claude-plugin/
+│   ├── plugin.json         # plugin manifest — lists every skill directory
+│   └── marketplace.json    # this repo as its own Claude Code marketplace
+├── .mcp.json               # MCP servers the plugin adds (Context7, DeepWiki)
+├── commands/               # slash commands — /new-feature, /ship-change, /review, …
+├── skills/                 # 12 categories · one dir per skill (<category>/<name>/SKILL.md)
+│   ├── workflows/          #   orchestrators: new-feature, ship-change, handle-incident, adopt-repo
+│   ├── planning/           #   grill, orient, evaluate-dependency, spike, phased-delivery, handoff, write-prd/adr
+│   ├── design/             #   design-endpoint/event/schema, evolve-contract, scaffold-*
+│   ├── pr-review/          #   nestjs / go / python / react / devops
+│   ├── quality/            #   deslopify, tdd, refactors, git history (split/rebase/conflicts/bisect)
+│   ├── data/               #   postgres / mongo / bigquery / redis — indexing, aggregation, cache
+│   ├── queues/             #   sqs-consumer, kafka, bullmq
+│   ├── observability/      #   instrument-service, debug-with-traces, define-alerts
+│   ├── deployment/         #   data/code-migration, deploy-service, cut-release, rollback, hotfix
+│   ├── incident/           #   investigate-bug, incident-response, on-call, postmortem
+│   ├── security/           #   security-review, audit-dependencies
+│   └── meta/               #   write-skill, audit-skills, distill-review-style
+├── scripts/                # install-skills.sh · validate-skills.mjs
+├── lefthook.yml            # local git hooks — conventional commits, branch names, validation
+├── .commitlintrc.yml       # @commitlint/config-conventional
+├── .agents/                # per-tool setup notes, MCP configs, gh-cli, external-skills
+├── docs/                   # templates/ · USAGE.md · plugin.md · composing-skills.md
+├── .out-of-scope/          # decisions to NOT do something, kept not deleted
+├── AGENTS.md · CONTEXT.md · LICENSE.md · README.md
 ```
 
 ---
 
 ## Conventions 📐
 
-- **Commits**: Conventional commits (`feat:`, `fix:`, `chore:`, `refactor:`, …), enforced with commitlint.
-- **Branches**: `feature/<name>`, `bugfix/<name>`.
+- **Commits**: Conventional commits (`feat:`, `fix:`, `chore:`, `refactor:`, …).
+- **Branches**: `feature/<name>` · `bugfix/<name>` · `improvement/<name>`.
 
 Full detail in [AGENTS.md](AGENTS.md).
+
+### Working on this repo
+
+```bash
+node scripts/validate-skills.mjs        # frontmatter, name↔folder, dup names, plugin.json sync
+brew install lefthook && lefthook install   # commit-msg + branch-name + validate hooks
+```
+
+CI (`.github/workflows/validate.yml`) runs the validator and commitlint on every push / PR.
 
 ---
 
