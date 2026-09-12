@@ -1,0 +1,12 @@
+/node_modules
+/.next
+/out
+/build
+next-env.d.ts
+*.tsbuildinfo
+.DS_Store
+.env*
+!.env.example
+
+# synced from repo root by `npm run sync-assets` (predev / prebuild)
+/public/logo.svg
