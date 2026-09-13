@@ -9,6 +9,7 @@ alignment, breakdown, and the docs that capture decisions.
 | `planning/orient`              | Get up to speed in an unfamiliar codebase → draft its `CONTEXT.md` |
 | `planning/evaluate-dependency` | Decide whether to add a library — API, maintenance, cost, alternatives |
 | `planning/spike`               | Timeboxed throwaway to answer one question, then delete it (adapted from Matt Pocock) |
+| `planning/to-questionnaire`     | Turn a decision that isn't yours to make into a questionnaire for the person who holds the answer (adapted from Matt Pocock) |
 | `planning/phased-delivery`     | Split multi-session work into vertical phases with non-goals, checkable done, tag/merge boundaries |
 | `planning/handoff`             | Compact a session into a portable handoff doc (adapted from Matt Pocock) |
 | `planning/write-prd`           | Draft a PRD from the template (`../../docs/templates/PRD.md`) |

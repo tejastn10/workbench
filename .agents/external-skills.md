@@ -16,6 +16,8 @@ a ~30-skill set for "real engineering, not vibe coding". Two ways to use it here
 | `planning/orient`           | `wayfinder` (spirit)     | adds the `CONTEXT.md` output            |
 | `planning/spike`            | `prototype`              | timeboxed, delete-after, write-up rule  |
 | `planning/handoff`          | `handoff`                | self-contained                          |
+| `planning/to-questionnaire` | `to-questionnaire`       | self-contained; runs after a stalled `grill` |
+| `quality/wait-what`         | `wait-what`              | self-contained; leans on `CONTEXT.md` vocab |
 | `quality/tdd`               | `tdd`                    | inlined the `tests.md` / `mocking.md` refs |
 | `quality/resolve-merge-conflicts` | `resolving-merge-conflicts` | lockfile-regeneration specifics    |
 | `meta/write-skill`          | `writing-for-agents` (spirit) | this repo's frontmatter + house style |
@@ -42,7 +44,7 @@ npx skills@latest add mattpocock/skills
 | `grill-with-docs` | grilling that also drafts `CONTEXT.md` + ADRs as it goes — richer than our `grill` + `write-adr` |
 | `domain-modeling` | builds the ubiquitous-language glossary our `CONTEXT.md` wants |
 | `to-tickets` / `to-spec` / `triage` | turning a goal into tracked, triaged, blocking-edge work (needs `/setup-matt-pocock-skills`) |
-| `wait-what` | "explain what just happened / changed" — pairs with our `deslopify` |
+| `teach` | stateful multi-session teaching workspace (`MISSION.md`, `RESOURCES.md`, `lessons/*.html`) — too big and too far outside engineering scope to adapt; use upstream as-is |
 
 **Skip — we have our own, grounded version:**
 

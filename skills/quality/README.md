@@ -8,6 +8,7 @@ clean git history. Every refactor keeps each commit green.
 | Skill                  | Use for                                                     |
 | ---------------------- | ------------------------------------------------------- |
 | `quality/deslopify`         | Strip AI slop from freshly written code — subtractive only, run before commit |
+| `quality/wait-what`         | Re-pitch an explanation that didn't land — shorter *and* with the missing context, in `CONTEXT.md` vocab (adapted from Matt Pocock) |
 | `quality/tdd`               | Red → green loop that produces tests worth keeping (adapted from Matt Pocock) |
 | `quality/extract-module`    | Split a too-big file/module along its real seams          |
 | `quality/wide-rename`       | Rename/retype across hundreds of call sites — expand / migrate / contract |
