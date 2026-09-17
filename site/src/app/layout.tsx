@@ -45,7 +45,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 					<PageLines />
 					<div className="relative z-10 flex min-h-screen flex-col">
 						<Nav />
-						<main className="mx-auto w-full max-w-6xl flex-1 px-5">{children}</main>
+						<main className="mx-auto w-full max-w-[1800px] flex-1 px-5 sm:px-8 lg:px-12 xl:px-16">
+							{children}
+						</main>
 						<Footer />
 					</div>
 				</ThemeProvider>

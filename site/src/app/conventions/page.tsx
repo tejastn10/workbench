@@ -18,7 +18,7 @@ export default function ConventionsPage() {
 			/>
 
 			<section className="border-b border-border py-12">
-				<div className="grid gap-3 sm:grid-cols-2">
+				<div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
 					{CONVENTIONS.map((c) => (
 						<div key={c.title} className="border border-border bg-card p-4">
 							<h2 className="text-sm font-bold">{c.title}</h2>

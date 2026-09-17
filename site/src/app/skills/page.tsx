@@ -29,7 +29,7 @@ export default function SkillsPage() {
 					title={group.label}
 					count={group.skills.length}
 				>
-					<div className="grid gap-3 sm:grid-cols-2">
+					<div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
 						{group.skills.map((skill) => (
 							<SkillCard key={skill.name} skill={skill} />
 						))}

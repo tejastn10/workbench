@@ -64,7 +64,7 @@ export default function Home() {
 						<span className="text-border">/</span> MIT
 					</div>
 
-					<h1 className="font-display mt-7 text-[2.6rem] leading-[1.0] sm:text-6xl lg:text-7xl">
+					<h1 className="font-display mt-7 text-[2.6rem] leading-[1.0] sm:text-6xl lg:text-7xl xl:text-8xl">
 						One bench for
 						<br />
 						<span className="text-muted-foreground">every coding agent.</span>
@@ -120,7 +120,7 @@ export default function Home() {
 						[mcpCount, "MCP / tools"],
 					].map(([n, label]) => (
 						<div key={label as string} className="bg-background p-5">
-							<dd className="font-display text-3xl sm:text-4xl">{n}</dd>
+							<dd className="font-display text-3xl sm:text-4xl lg:text-5xl">{n}</dd>
 							<dt className="section-label mt-1">{label}</dt>
 						</div>
 					))}
@@ -138,7 +138,7 @@ export default function Home() {
 						see all →
 					</Link>
 				</div>
-				<ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+				<ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 					{groups.map((g) => (
 						<li key={g.category}>
 							<Link
