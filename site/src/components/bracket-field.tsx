@@ -24,7 +24,6 @@ export function BracketField({
 		>
 			{Array.from({ length: rows }, (_, i) => (
 				<div
-					// biome-ignore lint/suspicious/noArrayIndexKey: static decorative rows
 					key={i}
 					className={`bracket-row ${size} leading-[1.15] text-muted-foreground/30`}
 					style={{

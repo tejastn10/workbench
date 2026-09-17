@@ -14,7 +14,7 @@ export function Section({ id, label, title, count, intro, children }: Props) {
 		<section id={id} className="scroll-mt-24 border-b border-border py-14 last:border-b-0">
 			{label ? <span className="section-label">{label}</span> : null}
 			{title ? (
-				<h2 className="font-display mt-2 flex items-baseline gap-3 text-xl sm:text-2xl">
+				<h2 className="font-display mt-2 flex items-baseline gap-3 text-2xl sm:text-3xl lg:text-4xl">
 					{title}
 					{typeof count === "number" ? (
 						<span className="font-mono text-xs font-normal text-muted-foreground">

@@ -2,7 +2,7 @@ import { EXTERNAL, SITE } from "@/data/site";
 
 export function Footer() {
 	return (
-		<footer className="mx-auto mt-10 max-w-6xl border-t border-border px-5 py-10 text-xs text-muted-foreground">
+		<footer className="mx-auto mt-10 max-w-[1800px] border-t border-border px-5 py-10 text-xs text-muted-foreground sm:px-8 lg:px-12 xl:px-16">
 			<p>
 				MIT ·{" "}
 				<a href={SITE.repo} className="underline-slide text-foreground">

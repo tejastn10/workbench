@@ -19,7 +19,7 @@ export function PageHeader({ label, title, intro }: Props) {
 					← workbench
 				</Link>
 				<span className="section-label mt-7 block">{label}</span>
-				<h1 className="font-display mt-2 text-3xl sm:text-5xl">{title}</h1>
+				<h1 className="font-display mt-2 text-4xl sm:text-6xl lg:text-7xl">{title}</h1>
 				{intro ? (
 					<p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground">{intro}</p>
 				) : null}
