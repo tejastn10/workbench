@@ -89,7 +89,7 @@ Stack-specific checks and tooling live in `skills/pr-review/<language>.md`.
 ## Tooling
 
 - MCP servers: configs and per-client setup in `.agents/mcp/` — Context7 (library
-  docs), DeepWiki (unfamiliar repos).
+  docs), DeepWiki (unfamiliar repos), Notion (search/read/write a workspace).
 - GitHub (PR / issue / release history) goes through the `gh` CLI, not an MCP
   server: `.agents/github-cli.md`.
 - External skill sets worth installing (Matt Pocock's, etc.): `.agents/external-skills.md`.

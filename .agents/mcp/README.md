@@ -7,6 +7,7 @@ Model Context Protocol server configs, shared across agents. One file per server
 | ---------------------------- | ----------------------------------------------------- | ----------- |
 | [`context7.md`](context7.md) | Live, version-pinned library docs (long tail)         | none / opt key |
 | [`deepwiki.md`](deepwiki.md) | Auto-generated architecture docs for public GitHub repos | none        |
+| [`notion.md`](notion.md)     | Search, read, and write a Notion workspace            | OAuth (hosted) / token (self-hosted) |
 
 GitHub PR / issue history goes through the `gh` CLI, not an MCP server — see
 [`../github-cli.md`](../github-cli.md). Context7 already covers version-pinned docs
@@ -26,6 +27,10 @@ Drop into a project, or `~/.claude.json` for global:
     "deepwiki": {
       "type": "http",
       "url": "https://mcp.deepwiki.com/mcp"
+    },
+    "notion": {
+      "type": "http",
+      "url": "https://mcp.notion.com/mcp"
     }
   }
 }
