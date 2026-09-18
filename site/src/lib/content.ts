@@ -162,6 +162,12 @@ export function getMcpServers(): McpServer[] {
 			doc: ".agents/mcp/deepwiki.md",
 		},
 		{
+			name: "Notion",
+			purpose: "Search, read, and write a Notion workspace",
+			auth: "OAuth (hosted) / token (self-hosted)",
+			doc: ".agents/mcp/notion.md",
+		},
+		{
 			name: "GitHub",
 			purpose: "PR / issue / release history — via the gh CLI, not an MCP server",
 			auth: "gh (already authed)",

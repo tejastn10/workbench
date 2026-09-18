@@ -46,12 +46,14 @@ ln -sf ~/workbench/AGENTS.md ~/.codex/AGENTS.md
 export const MCP_JSON = `{
   "mcpServers": {
     "context7": { "command": "npx", "args": ["-y", "@upstash/context7-mcp"] },
-    "deepwiki": { "type": "http", "url": "https://mcp.deepwiki.com/mcp" }
+    "deepwiki": { "type": "http", "url": "https://mcp.deepwiki.com/mcp" },
+    "notion": { "type": "http", "url": "https://mcp.notion.com/mcp" }
   }
 }`;
 
 export const MCP_ADD = `claude mcp add --scope user context7 -- npx -y @upstash/context7-mcp
-claude mcp add --transport http deepwiki https://mcp.deepwiki.com/mcp`;
+claude mcp add --transport http deepwiki https://mcp.deepwiki.com/mcp
+claude mcp add --transport http notion https://mcp.notion.com/mcp`;
 
 export const CONVENTIONS = [
 	{
