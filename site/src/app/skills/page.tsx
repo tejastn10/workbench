@@ -45,7 +45,7 @@ export default function SkillsPage() {
 							{EXTERNAL.adapted.map((a) => (
 								<li key={a.ours}>
 									<a
-										href={`${SITE.repo}/blob/main/skills/${a.ours}.md`}
+										href={`${SITE.repo}/blob/main/skills/${a.ours}/SKILL.md`}
 										className="font-mono text-foreground underline-slide"
 									>
 										{a.ours}
