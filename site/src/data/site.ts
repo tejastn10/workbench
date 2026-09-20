@@ -98,13 +98,23 @@ export const EXTERNAL = {
 	installAlt: "npx skills@latest add mattpocock/skills",
 	adapted: [
 		{ ours: "planning/grill", theirs: "grill-me + grilling" },
+		{ ours: "planning/orient", theirs: "wayfinder (spirit)" },
+		{ ours: "planning/spike", theirs: "prototype" },
 		{ ours: "planning/handoff", theirs: "handoff" },
+		{ ours: "planning/to-questionnaire", theirs: "to-questionnaire" },
+		{ ours: "quality/wait-what", theirs: "wait-what" },
 		{ ours: "quality/tdd", theirs: "tdd" },
+		{ ours: "quality/resolve-merge-conflicts", theirs: "resolving-merge-conflicts" },
+		{ ours: "meta/write-skill", theirs: "writing-for-agents (spirit)" },
 	],
-	take: ["grill-with-docs", "domain-modeling", "wayfinder", "to-tickets", "research", "wait-what"],
+	take: ["grill-with-docs", "domain-modeling", "to-tickets / to-spec / triage", "teach"],
 	skip: [
 		{ theirs: "code-review", ours: "pr-review/* — built from a real ~120-comment corpus" },
-		{ theirs: "diagnosing-bugs", ours: "debugging/investigate-bug" },
+		{ theirs: "diagnosing-bugs", ours: "incident/investigate-bug" },
+		{
+			theirs: "improve-codebase-architecture / codebase-design",
+			ours: "quality/* — overlaps our refactor-focused skills",
+		},
 	],
 };
 
