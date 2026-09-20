@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 };
 
 const SLASH_CMD = `# ~/.claude/commands/feature.md
-Follow ~/workbench/skills/workflows/new-feature.md for: $ARGUMENTS
+Follow ~/workbench/skills/workflows/new-feature/SKILL.md for: $ARGUMENTS
 
 #  then, in a session:
 /feature add rate limiting`;
