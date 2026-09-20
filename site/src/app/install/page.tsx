@@ -101,7 +101,7 @@ export default function InstallPage() {
 					The review skills are generated from a real corpus of your PR comments, not best-practice
 					lists. On the machine with repo access, run the{" "}
 					<a
-						href={`${SITE.repo}/blob/main/skills/pr-review/distill-review-style.md`}
+						href={`${SITE.repo}/blob/main/skills/meta/distill-review-style/SKILL.md`}
 						className="underline-slide text-foreground"
 					>
 						distill-review-style
