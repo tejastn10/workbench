@@ -1,0 +1,4 @@
+# Built pages — regenerate with `node examples/<name>/build.mjs [--light]`
+examples/**/*.html
+shots/
+audit.txt
