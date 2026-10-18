@@ -54,6 +54,21 @@ npx skills@latest add mattpocock/skills
 | `diagnosing-bugs` | `incident/investigate-bug` |
 | `improve-codebase-architecture` / `codebase-design` | overlaps `skills/quality/` intent |
 
+## `wheresryan22/anatomy`
+
+<https://github.com/wheresryan22/anatomy> (MIT, © 2026 Ryan) — explains a technical
+idea by building it as an interactive isometric machine (SVG, WebGL, optional 3D).
+**Vendored whole** as [`visual/anatomy`](../skills/visual/anatomy/SKILL.md): unlike
+the adapted skills above it isn't trimmed, because its `kit/`, `scripts/` and
+example sources are what the skill runs. Built example pages, tests and evals are
+left out. Refresh steps: [`skills/visual/README.md`](../skills/visual/README.md).
+
+To use upstream directly instead:
+
+```bash
+npx skills add wheresryan22/anatomy -g -a claude-code
+```
+
 ## `mattpocock/agent-rules-books`
 
 <https://github.com/mattpocock/agent-rules-books> — `AGENTS.md` rules distilled from
