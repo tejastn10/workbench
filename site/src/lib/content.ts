@@ -32,6 +32,7 @@ const CATEGORY_ORDER = [
 	"deployment",
 	"incident",
 	"security",
+	"visual",
 	"meta",
 ];
 
