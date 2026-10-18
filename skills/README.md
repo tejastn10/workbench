@@ -23,6 +23,7 @@ the others for a whole task (feature, change, incident, onboarding). See
 | `deployment/`    | Migrations, rollout, release, rollback, hotfix              |
 | `incident/`      | Bug investigation, live incident response, on-call, postmortem |
 | `security/`      | Whole-surface security review, dependency audit             |
+| `visual/`        | Interactive isometric figures that explain an idea (`anatomy`, vendored) |
 | `meta/`          | Maintaining the workbench; building review skills from a corpus |
 
 ## Installing
