@@ -1,6 +1,6 @@
 {
   "name": "workbench",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Tejas Nikhar's agent skills for real engineering \u2014 PR review, planning, design, data, queues, observability, deployment, incident, security, and workflow orchestration. Grounded in real conventions, not generic best practice.",
   "author": {
     "name": "Tejas Nikhar",
@@ -80,6 +80,7 @@
     "./skills/queues/sqs-consumer",
     "./skills/security/audit-dependencies",
     "./skills/security/security-review",
+    "./skills/visual/anatomy",
     "./skills/workflows/adopt-repo",
     "./skills/workflows/handle-incident",
     "./skills/workflows/new-feature",
