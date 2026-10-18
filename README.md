@@ -17,13 +17,14 @@
 
 ## Features 🌟
 
-- **13 skill categories** — workflows, planning, design, PR review, quality, git, data, queues, observability, deployment, incident, security, meta. Each grounded in real conventions, not generic best practice.
+- **13 skill categories** — workflows, planning, design, PR review, quality, data, queues, observability, deployment, incident, security, visual, meta. Each grounded in real conventions, not generic best practice.
 - **Workflows**: orchestrator skills that invoke the right *sequence* of others for a whole task (feature, change, incident, repo onboarding).
 - **PR Review Skills**: Per-stack (NestJS/TypeScript, Go, Python, React, DevOps), distilled from ~120 real review comments.
 - **Data & infra**: Postgres/Mongo/BigQuery/Redis indexing and aggregation; SQS/Kafka/BullMQ lifecycle and DLQ; OTEL + the LGTM stack.
 - **Ship safely**: additive migrations, flag-gated cutovers, canary rollout, rollback, hotfix, incident response, blameless postmortems.
 - **Phased Delivery**: multi-session work as tracer-bullet phases with non-goals and real rollback points.
 - **Deslopify**: a subtractive pass that strips AI slop from freshly written code before commit.
+- **Anatomy figures**: explain an idea as an interactive isometric machine — [`wheresryan22/anatomy`](https://github.com/wheresryan22/anatomy) by Ryan, vendored under MIT.
 - **Doc templates**: PRD, ADR, POSTMORTEM — one house format, filled by skills.
 - **MCP Setup**: Context7 and DeepWiki configs with per-client setup notes (GitHub goes through `gh`).
 - **Global Conventions**: commit, branch, and review standards in one place — see [AGENTS.md](AGENTS.md).
@@ -86,7 +87,7 @@ workbench/
 │   └── marketplace.json    # this repo as its own Claude Code marketplace
 ├── .mcp.json               # MCP servers the plugin adds (Context7, DeepWiki)
 ├── commands/               # slash commands — /new-feature, /ship-change, /review, …
-├── skills/                 # 12 categories · one dir per skill (<category>/<name>/SKILL.md)
+├── skills/                 # 13 categories · one dir per skill (<category>/<name>/SKILL.md)
 │   ├── workflows/          #   orchestrators: new-feature, ship-change, handle-incident, adopt-repo
 │   ├── planning/           #   grill, orient, evaluate-dependency, spike, phased-delivery, handoff, write-prd/adr
 │   ├── design/             #   design-endpoint/event/schema, evolve-contract, scaffold-*
@@ -98,6 +99,7 @@ workbench/
 │   ├── deployment/         #   data/code-migration, deploy-service, cut-release, rollback, hotfix
 │   ├── incident/           #   investigate-bug, incident-response, on-call, postmortem
 │   ├── security/           #   security-review, audit-dependencies
+│   ├── visual/             #   anatomy — interactive isometric figures (vendored, MIT)
 │   └── meta/               #   write-skill, audit-skills, distill-review-style
 ├── scripts/                # install-skills.sh · validate-skills.mjs
 ├── lefthook.yml            # local git hooks — conventional commits, branch names, validation
@@ -137,4 +139,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) fi
 ## Acknowledgments 🙌
 
 - Named **Workbench** — where the tools are kept, and kept sharp.
+- [`visual/anatomy`](skills/visual/anatomy/SKILL.md) is the work of Ryan ([@wheresryan22](https://github.com/wheresryan22)) — [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy), MIT. Several planning and quality skills adapt [Matt Pocock's skills](https://github.com/mattpocock/skills), MIT.
 - Built with ❤️ for coding agents.
