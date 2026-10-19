@@ -4,8 +4,9 @@
 	"private": true,
 	"scripts": {
 		"sync-assets": "cp ../logo.svg public/logo.svg",
-		"predev": "npm run sync-assets",
-		"prebuild": "npm run sync-assets",
+		"figures": "node figures/nervous-system/build.mjs",
+		"predev": "npm run sync-assets && npm run figures",
+		"prebuild": "npm run sync-assets && npm run figures",
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
