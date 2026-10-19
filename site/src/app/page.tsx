@@ -2,6 +2,7 @@ import Link from "next/link";
 import { BracketField } from "@/components/bracket-field";
 import { CodeBlock } from "@/components/code-block";
 import { Logo } from "@/components/logo";
+import { NervousSystem } from "@/components/nervous-system";
 import { INSTALL_SHORT, SITE } from "@/data/site";
 import { getMcpServers, getSkillCount, getSkills, getTemplates } from "@/lib/content";
 
@@ -44,61 +45,51 @@ export default function Home() {
 					className="pointer-events-none absolute inset-0 py-8 [mask-image:linear-gradient(to_bottom,black,transparent_30%,transparent_70%,black)]"
 				/>
 
-				{/* oversized framing brackets, slow breathe */}
-				<span
-					aria-hidden
-					className="bracket-breathe pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 select-none text-[15rem] leading-none sm:text-[24rem]"
-				>
-					[
-				</span>
-				<span
-					aria-hidden
-					className="bracket-breathe pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 select-none text-[15rem] leading-none sm:text-[24rem]"
-				>
-					]
-				</span>
+				<div className="relative grid w-full items-center gap-10 py-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-12">
+					<div className="min-w-0">
+						<div className="section-label flex items-center gap-2">
+							<Logo size={15} /> Personal <span className="text-border">/</span> open{" "}
+							<span className="text-border">/</span> MIT
+						</div>
 
-				<div className="relative w-full py-20">
-					<div className="section-label flex items-center gap-2">
-						<Logo size={15} /> Personal <span className="text-border">/</span> open{" "}
-						<span className="text-border">/</span> MIT
+						<h1 className="font-display mt-7 text-[2.6rem] leading-[1.0] sm:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
+							One bench for
+							<br />
+							<span className="text-muted-foreground">every coding agent.</span>
+						</h1>
+
+						<p className="mt-7 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+							{SITE.tagline} Whichever agent you drive pulls from the same conventions —{" "}
+							<span className="italic">{SITE.sub.toLowerCase()}</span>
+						</p>
+
+						<div className="mt-9 flex flex-wrap gap-2 font-mono text-xs uppercase tracking-wider">
+							<Link
+								href="/skills"
+								className="border border-foreground bg-foreground px-4 py-2.5 font-mono text-background transition-opacity hover:opacity-80"
+							>
+								Browse skills →
+							</Link>
+							<a
+								href={SITE.repo}
+								className="border border-border bg-background px-4 py-2.5 transition-colors hover:border-foreground/40 hover:text-foreground"
+							>
+								GitHub repo
+							</a>
+							<a
+								href={`${SITE.repo}/blob/main/AGENTS.md`}
+								className="border border-border bg-background px-4 py-2.5 transition-colors hover:border-foreground/40 hover:text-foreground"
+							>
+								AGENTS.md
+							</a>
+						</div>
+
+						<div className="mt-11">
+							<CodeBlock code={INSTALL_SHORT} />
+						</div>
 					</div>
 
-					<h1 className="font-display mt-7 text-[2.6rem] leading-[1.0] sm:text-6xl lg:text-7xl xl:text-8xl">
-						One bench for
-						<br />
-						<span className="text-muted-foreground">every coding agent.</span>
-					</h1>
-
-					<p className="mt-7 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-						{SITE.tagline} Whichever agent you drive pulls from the same conventions —{" "}
-						<span className="italic">{SITE.sub.toLowerCase()}</span>
-					</p>
-
-					<div className="mt-9 flex flex-wrap gap-2 font-mono text-xs uppercase tracking-wider">
-						<Link
-							href="/skills"
-							className="border border-foreground bg-foreground px-4 py-2.5 font-mono text-background transition-opacity hover:opacity-80"
-						>
-							Browse skills →
-						</Link>
-						<a
-							href={SITE.repo}
-							className="border border-border bg-background px-4 py-2.5 transition-colors hover:border-foreground/40 hover:text-foreground"
-						>
-							GitHub repo
-						</a>
-						<a
-							href={`${SITE.repo}/blob/main/AGENTS.md`}
-							className="border border-border bg-background px-4 py-2.5 transition-colors hover:border-foreground/40 hover:text-foreground"
-						>
-							AGENTS.md
-						</a>
-					</div>
-
-					<div className="mt-11">
-						<CodeBlock code={INSTALL_SHORT} />
-					</div>
+					<NervousSystem />
 				</div>
 			</section>
 
