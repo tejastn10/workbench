@@ -10,3 +10,7 @@ next-env.d.ts
 
 # synced from repo root by `npm run sync-assets` (predev / prebuild)
 /public/logo.svg
+
+# built from figures/ by `npm run figures` (predev / prebuild)
+/src/generated
+/public/figures
