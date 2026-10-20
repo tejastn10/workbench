@@ -18,7 +18,14 @@ export function Footer() {
 				<a href={EXTERNAL.repo} className="underline-slide text-foreground">
 					mattpocock/skills
 				</a>{" "}
-				(MIT).
+				(MIT). Fig 1 drawn with{" "}
+				<a
+					href="https://github.com/wheresryan22/anatomy"
+					className="underline-slide text-foreground"
+				>
+					anatomy
+				</a>{" "}
+				by Ryan (MIT).
 			</p>
 		</footer>
 	);
