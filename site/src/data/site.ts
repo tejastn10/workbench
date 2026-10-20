@@ -17,6 +17,30 @@ export const NAV = [
 	{ href: "/install", label: "Install" },
 ];
 
+// The home-page figure, read as anatomy. Organ → what it is in the workbench.
+export const ANATOMY = [
+	{
+		organ: "Brain",
+		is: "Workflows + AGENTS.md",
+		body: "Decides which skill runs next — new-feature, ship-change, handle-incident, adopt-repo — under the conventions in AGENTS.md.",
+	},
+	{
+		organ: "Spine & nerves",
+		is: "Skill descriptions",
+		body: "Each skill's description is the routing signal: the agent matches the task to it and the impulse travels to the right place.",
+	},
+	{
+		organ: "Ten fingers",
+		is: "Ten hands-on categories",
+		body: "Planning, design, data, queues, observability · quality, PR review, security, deployment, incident. Each finger owns one.",
+	},
+	{
+		organ: "Keyboard",
+		is: "Your repo",
+		body: "Where the work lands — any agent (Claude Code, Codex, Cursor, VS Code) pressing the same keys the same way.",
+	},
+];
+
 export const INSTALL_SHORT = `# any agent — Claude Code, Codex, Cursor, Copilot, …
 npx skills@latest add tejastn10/workbench`;
 
