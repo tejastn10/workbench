@@ -3,7 +3,7 @@ import { BracketField } from "@/components/bracket-field";
 import { CodeBlock } from "@/components/code-block";
 import { Logo } from "@/components/logo";
 import { NervousSystem } from "@/components/nervous-system";
-import { INSTALL_SHORT, SITE } from "@/data/site";
+import { ANATOMY, INSTALL_SHORT, SITE } from "@/data/site";
 import { getMcpServers, getSkillCount, getSkills, getTemplates } from "@/lib/content";
 
 const EXPLORE = [
@@ -91,6 +91,24 @@ export default function Home() {
 
 					<NervousSystem />
 				</div>
+			</section>
+
+			{/* ── How it fits together ─────────────────────────────── */}
+			<section className="border-b border-border py-14">
+				<span className="section-label">How it fits together</span>
+				<p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+					Read the figure like a nervous system. The agent is the body; the workbench is what tells
+					it what to do next, and which hand does it.
+				</p>
+				<dl className="mt-8 grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
+					{ANATOMY.map((part) => (
+						<div key={part.organ} className="bg-background p-5">
+							<dt className="section-label">{part.organ}</dt>
+							<dd className="mt-2 text-sm font-bold">{part.is}</dd>
+							<dd className="mt-1 text-xs leading-relaxed text-muted-foreground">{part.body}</dd>
+						</div>
+					))}
+				</dl>
 			</section>
 
 			{/* ── What it is ───────────────────────────────────────── */}
