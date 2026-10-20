@@ -55,7 +55,7 @@ git clone git@github.com:tejastn10/workbench.git ~/workbench
 ~/workbench/scripts/install-skills.sh
 ```
 
-Skills assume the conventions in `AGENTS.md`; if a project diverges, its own `CONTEXT.md` records the difference. Full walkthrough: [`docs/USAGE.md`](docs/USAGE.md) · plugin details: [`docs/plugin.md`](docs/plugin.md).
+Skills assume the conventions in `AGENTS.md`; if a project diverges, its own `CONTEXT.md` records the difference. Full walkthrough: [`docs/USAGE.md`](docs/USAGE.md) · plugin details: [`docs/plugin.md`](docs/plugin.md) · updating every machine after a push: [`docs/UPDATING.md`](docs/UPDATING.md).
 
 ### Which route
 
@@ -105,7 +105,7 @@ workbench/
 ├── lefthook.yml            # local git hooks — conventional commits, branch names, validation
 ├── .commitlintrc.yml       # @commitlint/config-conventional
 ├── .agents/                # per-tool setup notes, MCP configs, gh-cli, external-skills
-├── docs/                   # templates/ · USAGE.md · plugin.md · composing-skills.md
+├── docs/                   # templates/ · USAGE.md · UPDATING.md · plugin.md · composing-skills.md
 ├── .out-of-scope/          # decisions to NOT do something, kept not deleted
 ├── AGENTS.md · CONTEXT.md · LICENSE.md · README.md
 ```
