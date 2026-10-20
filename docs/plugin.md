@@ -32,6 +32,7 @@ That gives you:
 
 **Updates:** bump `version` in `.claude-plugin/plugin.json` when you push changes,
 then users run `/plugin update workbench` (or `claude plugin update workbench`).
+Every route, step by step: [`UPDATING.md`](UPDATING.md).
 
 ## How it's wired
 
