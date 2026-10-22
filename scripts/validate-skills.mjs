@@ -15,14 +15,25 @@ const warnings = [];
 const err = (m) => errors.push(m);
 const warn = (m) => warnings.push(m);
 
-// --- tiny YAML-frontmatter reader (only needs top-level `key: value`) ---
+// --- tiny YAML-frontmatter reader: top-level `key: value`, plus `key: >` / `key: |`
+// blocks (the indented lines that follow, joined) ---
 function frontmatter(text) {
 	const m = text.match(/^---\n([\s\S]*?)\n---/);
 	if (!m) return null;
 	const out = {};
+	let block = null;
 	for (const line of m[1].split("\n")) {
+		if (block && /^\s+\S/.test(line)) {
+			out[block] = `${out[block]} ${line.trim()}`.trim();
+			continue;
+		}
+		block = null;
 		const kv = line.match(/^([A-Za-z0-9_-]+):\s*(.*)$/);
-		if (kv) out[kv[1]] = kv[2].replace(/^["']|["']$/g, "").trim();
+		if (!kv) continue;
+		if (/^[>|][-+]?$/.test(kv[2].trim())) {
+			block = kv[1];
+			out[block] = "";
+		} else out[kv[1]] = kv[2].replace(/^["']|["']$/g, "").trim();
 	}
 	return out;
 }
