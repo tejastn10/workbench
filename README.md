@@ -25,6 +25,7 @@
 - **Phased Delivery**: multi-session work as tracer-bullet phases with non-goals and real rollback points.
 - **Deslopify**: a subtractive pass that strips AI slop from freshly written code before commit.
 - **Anatomy figures**: explain an idea as an interactive isometric machine — [`wheresryan22/anatomy`](https://github.com/wheresryan22/anatomy) by Ryan, vendored under MIT.
+- **Motion design**: timing, easing and choreography for UI animation — [`lottiefiles/motion-design-skill`](https://github.com/lottiefiles/motion-design-skill) by LottieFiles, vendored under MIT.
 - **Doc templates**: PRD, ADR, POSTMORTEM — one house format, filled by skills.
 - **MCP Setup**: Context7 and DeepWiki configs with per-client setup notes (GitHub goes through `gh`).
 - **Global Conventions**: commit, branch, and review standards in one place — see [AGENTS.md](AGENTS.md).
@@ -99,7 +100,7 @@ workbench/
 │   ├── deployment/         #   data/code-migration, deploy-service, cut-release, rollback, hotfix
 │   ├── incident/           #   investigate-bug, incident-response, on-call, postmortem
 │   ├── security/           #   security-review, audit-dependencies
-│   ├── visual/             #   anatomy — interactive isometric figures (vendored, MIT)
+│   ├── visual/             #   anatomy, motion-design — figures and animation (vendored, MIT)
 │   └── meta/               #   write-skill, audit-skills, distill-review-style
 ├── scripts/                # install-skills.sh · validate-skills.mjs
 ├── lefthook.yml            # local git hooks — conventional commits, branch names, validation
@@ -139,5 +140,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) fi
 ## Acknowledgments 🙌
 
 - Named **Workbench** — where the tools are kept, and kept sharp.
-- [`visual/anatomy`](skills/visual/anatomy/SKILL.md) is the work of Ryan ([@wheresryan22](https://github.com/wheresryan22)) — [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy), MIT. Several planning and quality skills adapt [Matt Pocock's skills](https://github.com/mattpocock/skills), MIT.
+- [`visual/anatomy`](skills/visual/anatomy/SKILL.md) is the work of Ryan ([@wheresryan22](https://github.com/wheresryan22)) — [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy), MIT. [`visual/motion-design`](skills/visual/motion-design/SKILL.md) is LottieFiles' work — [lottiefiles/motion-design-skill](https://github.com/lottiefiles/motion-design-skill), MIT. Several planning and quality skills adapt [Matt Pocock's skills](https://github.com/mattpocock/skills), MIT.
 - Built with ❤️ for coding agents.
