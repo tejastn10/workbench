@@ -69,6 +69,18 @@ To use upstream directly instead:
 npx skills add wheresryan22/anatomy -g -a claude-code
 ```
 
+## `lottiefiles/motion-design-skill`
+
+<https://github.com/lottiefiles/motion-design-skill> (MIT, © 2025 LottieFiles) — motion
+design principles for UI animation: personality archetypes, duration and easing
+tables, choreography, Disney principles. **Vendored whole** as
+[`visual/motion-design`](../skills/visual/motion-design/SKILL.md) (Markdown only).
+Refresh steps: [`skills/visual/README.md`](../skills/visual/README.md).
+
+```bash
+npx skills add lottiefiles/motion-design-skill     # upstream directly instead
+```
+
 ## `mattpocock/agent-rules-books`
 
 <https://github.com/mattpocock/agent-rules-books> — `AGENTS.md` rules distilled from
