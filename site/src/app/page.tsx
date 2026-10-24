@@ -2,7 +2,7 @@ import Link from "next/link";
 import { BracketField } from "@/components/bracket-field";
 import { CodeBlock } from "@/components/code-block";
 import { Logo } from "@/components/logo";
-import { NervousSystem } from "@/components/nervous-system";
+import { Station } from "@/components/station";
 import { ANATOMY, INSTALL_SHORT, SITE } from "@/data/site";
 import { getMcpServers, getSkillCount, getSkills, getTemplates } from "@/lib/content";
 
@@ -89,7 +89,7 @@ export default function Home() {
 						</div>
 					</div>
 
-					<NervousSystem />
+					<Station />
 				</div>
 			</section>
 
