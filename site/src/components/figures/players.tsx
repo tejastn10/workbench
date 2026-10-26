@@ -3,9 +3,15 @@
 // The page figures. Each player says what one item does; Figure runs the rest.
 
 import "@/generated/cabinet.css";
+import "@/generated/ground-station.css";
+import "@/generated/launch.css";
+import "@/generated/lock.css";
 import "@/generated/sequencer.css";
 import "@/generated/stamps.css";
 import CABINET from "@/generated/cabinet.json";
+import GROUND from "@/generated/ground-station.json";
+import LAUNCH from "@/generated/launch.json";
+import LOCK from "@/generated/lock.json";
 import SEQ from "@/generated/sequencer.json";
 import STAMPS from "@/generated/stamps.json";
 import { type Ctx, Figure, nearest, type Player } from "./figure";
@@ -127,6 +133,109 @@ const stamps: Player = {
 		),
 };
 
+// ── Fig 5: ground station ───────────────────────────────────────────────────
+const VIA: Record<string, string> = { gh: "linked through the gh CLI" };
+const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);
+const ground: Player = {
+	count: () => GROUND.links.length,
+	show(i, ctx) {
+		const link = GROUND.links[i];
+		ctx.say(`${link.name} · ${VIA[link.name] ?? "linked over MCP"}`);
+		const pulse = ctx.svg.querySelector('[data-part="pulse"]');
+		if (!pulse || ctx.still) return 1500;
+		const pts = link.path;
+		const seg = pts.slice(1).map((p, n) => Math.hypot(p[0] - pts[n][0], p[1] - pts[n][1]));
+		const total = seg.reduce((a, b) => a + b, 0);
+		const ms = Math.max(600, total / 0.22);
+		let t0 = 0;
+		const step = (now: number) => {
+			if (!t0) t0 = now;
+			const t = Math.min(1, (now - t0) / ms);
+			let d = ease(t) * total;
+			let n = 0;
+			while (n < seg.length - 1 && d > seg[n]) d -= seg[n++];
+			const a = pts[n];
+			const b = pts[n + 1];
+			const f = seg[n] ? d / seg[n] : 0;
+			pulse.setAttribute(
+				"transform",
+				`translate(${a[0] + (b[0] - a[0]) * f} ${a[1] + (b[1] - a[1]) * f})`
+			);
+			pulse.setAttribute("opacity", t < 1 ? "1" : "0");
+			if (t < 1) requestAnimationFrame(step);
+		};
+		requestAnimationFrame(step);
+		return ms + 900;
+	},
+	pick: (x, y) =>
+		nearest(
+			GROUND.links.map((l) => l.at),
+			x,
+			y,
+			22
+		),
+};
+
+// ── Fig 6: pin tumbler ──────────────────────────────────────────────────────
+const N_PINS = LOCK.pins.length;
+const lock: Player = {
+	count: () => N_PINS + 1,
+	lapRest: 2200,
+	reset(ctx) {
+		ctx.move('[data-part="key"]', LOCK.out);
+		for (const [n, p] of LOCK.pins.entries()) ctx.move(`[data-pin="${n}"]`, p.down);
+		ctx.say(`${N_PINS} conventions · key out`);
+	},
+	show(i, ctx) {
+		if (i === 0) {
+			ctx.move('[data-part="key"]', null);
+			ctx.say("key in · lifting the pins");
+			return 1000;
+		}
+		const p = LOCK.pins[i - 1];
+		ctx.move('[data-part="key"]', null);
+		ctx.move(`[data-pin="${i - 1}"]`, null);
+		ctx.say(
+			i === N_PINS
+				? `${N_PINS} of ${N_PINS} on the shear line · commit`
+				: `${i}/${N_PINS} · ${p.title}`
+		);
+		return i === N_PINS ? 1800 : 650;
+	},
+	pick(x, y) {
+		const hit = nearest(
+			LOCK.pins.map((p) => p.at),
+			x,
+			y,
+			10
+		);
+		return hit < 0 ? -1 : hit + 1;
+	},
+};
+
+// ── Fig 7: launch pad ───────────────────────────────────────────────────────
+const launch: Player = {
+	count: () => LAUNCH.arms.length,
+	lapRest: 1800,
+	reset: (ctx) => ctx.move("[data-arm]", null),
+	show(i, ctx) {
+		const a = LAUNCH.arms[i];
+		ctx.move(`[data-arm="${i}"]`, a.back);
+		ctx.say(`${a.route} · ${a.tools}`);
+		return 1500;
+	},
+	pick: (x, y) =>
+		nearest(
+			LAUNCH.arms.map((a) => a.at),
+			x,
+			y,
+			16
+		),
+};
+
 export const Cabinet = () => <Figure name="cabinet" player={cabinet} ratio="620/460" />;
 export const Sequencer = () => <Figure name="sequencer" player={sequencer} ratio="660/420" />;
 export const Stamps = () => <Figure name="stamps" player={stamps} ratio="620/420" />;
+export const GroundStation = () => <Figure name="ground-station" player={ground} ratio="640/420" />;
+export const Lock = () => <Figure name="lock" player={lock} ratio="640/420" />;
+export const Launch = () => <Figure name="launch" player={launch} ratio="560/560" />;
