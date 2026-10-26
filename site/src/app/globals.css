@@ -192,3 +192,57 @@ pre {
 		animation: none;
 	}
 }
+
+/* ─── Instrument details: plate corners, ruler, registration marks ─ */
+.plate {
+	position: relative;
+}
+.plate::before,
+.plate::after {
+	content: "";
+	position: absolute;
+	width: 9px;
+	height: 9px;
+	pointer-events: none;
+	opacity: 0.45;
+	transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.plate::before {
+	top: -1px;
+	left: -1px;
+	border-top: 1px solid hsl(var(--foreground));
+	border-left: 1px solid hsl(var(--foreground));
+}
+.plate::after {
+	right: -1px;
+	bottom: -1px;
+	border-right: 1px solid hsl(var(--foreground));
+	border-bottom: 1px solid hsl(var(--foreground));
+}
+.plate:hover::before,
+.plate:hover::after {
+	opacity: 1;
+}
+.ruler {
+	height: 14px;
+	background-image:
+		repeating-linear-gradient(to right, hsl(var(--foreground) / 0.5) 0 1px, transparent 1px 40px),
+		repeating-linear-gradient(to right, hsl(var(--border)) 0 1px, transparent 1px 8px);
+	background-size:
+		100% 12px,
+		100% 6px;
+	background-position:
+		left bottom,
+		left bottom;
+	background-repeat: repeat-x;
+}
+.section-label.marked::before {
+	content: "";
+	display: inline-block;
+	width: 6px;
+	height: 6px;
+	margin-right: 0.6em;
+	border: 1px solid currentColor;
+	vertical-align: 1px;
+}
+
