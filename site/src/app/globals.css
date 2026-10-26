@@ -246,3 +246,212 @@ pre {
 	vertical-align: 1px;
 }
 
+/* ─── Mission control: 3D stage, HUD, reveals, backdrop ───────────
+   One curve for everything (motion-design "premium"). Black and white only. */
+:root {
+	--ease: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stage {
+	position: relative;
+	perspective: 1700px;
+	perspective-origin: 50% 20%;
+	padding: 3.5rem 0 4.5rem;
+}
+.stage-rig {
+	position: relative;
+	transform-style: preserve-3d;
+	transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+}
+html.js .stage-rig {
+	opacity: 0;
+	transform: translateY(70px) rotateX(64deg) scale(0.86);
+	transition:
+		transform 1.3s var(--ease),
+		opacity 0.9s var(--ease);
+}
+html.js .stage[data-in] .stage-rig {
+	opacity: 1;
+	transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+}
+html.js .stage[data-live] .stage-rig {
+	transition: none;
+}
+.stage-body {
+	position: relative;
+	transform: translateZ(0);
+}
+.stage-body .iso-plate {
+	background: transparent;
+	box-shadow: none;
+}
+.stage-body .iso-legend {
+	justify-content: center;
+	text-align: center;
+	max-width: 46rem;
+	margin-inline: auto;
+}
+.stage-body .iso-keys {
+	justify-content: center;
+}
+.stage-ring {
+	position: absolute;
+	left: 50%;
+	top: 46%;
+	width: min(78%, 760px);
+	aspect-ratio: 1;
+	border: 1px solid hsl(var(--foreground) / 0.1);
+	border-radius: 50%;
+	transform: translate(-50%, -50%) translateZ(-90px) rotateX(74deg);
+	pointer-events: none;
+	box-shadow:
+		0 0 0 28px hsl(var(--foreground) / 0.02),
+		inset 0 0 0 60px hsl(var(--foreground) / 0.025);
+}
+.stage-ring::after {
+	content: "";
+	position: absolute;
+	inset: 18%;
+	border: 1px dashed hsl(var(--foreground) / 0.12);
+	border-radius: 50%;
+	animation: stage-spin 60s linear infinite;
+}
+@keyframes stage-spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+.stage-floor {
+	position: absolute;
+	left: -20%;
+	right: -20%;
+	bottom: 0;
+	height: 62%;
+	transform: perspective(700px) rotateX(68deg);
+	transform-origin: 50% 100%;
+	background-image:
+		linear-gradient(hsl(var(--foreground) / 0.09) 1px, transparent 1px),
+		linear-gradient(90deg, hsl(var(--foreground) / 0.09) 1px, transparent 1px);
+	background-size: 48px 48px;
+	animation: floor-run 9s linear infinite;
+	mask-image: radial-gradient(ellipse at 50% 100%, black 20%, transparent 70%);
+	pointer-events: none;
+}
+@keyframes floor-run {
+	to {
+		background-position: 0 48px;
+	}
+}
+.stage-hud {
+	position: absolute;
+	inset: 0.5rem 0 var(--legend-h, 3.5rem);
+	transform: translateZ(60px);
+	pointer-events: none;
+}
+.stage-corner {
+	position: absolute;
+	width: 22px;
+	height: 22px;
+	border-color: hsl(var(--foreground) / 0.7);
+}
+.stage-corner[data-c="tl"] {
+	top: 0;
+	left: 0;
+	border-top: 1px solid;
+	border-left: 1px solid;
+}
+.stage-corner[data-c="tr"] {
+	top: 0;
+	right: 0;
+	border-top: 1px solid;
+	border-right: 1px solid;
+}
+.stage-corner[data-c="bl"] {
+	bottom: 0;
+	left: 0;
+	border-bottom: 1px solid;
+	border-left: 1px solid;
+}
+.stage-corner[data-c="br"] {
+	bottom: 0;
+	right: 0;
+	border-bottom: 1px solid;
+	border-right: 1px solid;
+}
+.stage-tag {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	font-family: var(--font-mono);
+	font-size: 0.62rem;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	white-space: nowrap;
+	color: hsl(var(--muted-foreground));
+	display: inline-flex;
+	align-items: center;
+	gap: 0.6em;
+}
+.stage-tag[data-c="top"] {
+	top: -0.45rem;
+	background: hsl(var(--background));
+	padding: 0 0.8em;
+}
+.stage-tag[data-c="bottom"] {
+	bottom: -0.45rem;
+	background: hsl(var(--background));
+	padding: 0 0.8em;
+}
+.stage-dot {
+	width: 5px;
+	height: 5px;
+	background: hsl(var(--foreground));
+	animation: blink 1.6s steps(2, start) infinite;
+}
+@keyframes blink {
+	to {
+		visibility: hidden;
+	}
+}
+.stage-scan {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	height: 1px;
+	background: linear-gradient(90deg, transparent, hsl(var(--foreground) / 0.5), transparent);
+	animation: scan 7s var(--ease) infinite;
+	opacity: 0;
+}
+@keyframes scan {
+	0% {
+		top: 0;
+		opacity: 0;
+	}
+	8% {
+		opacity: 1;
+	}
+	60% {
+		top: 100%;
+		opacity: 0.6;
+	}
+	61%,
+	100% {
+		top: 100%;
+		opacity: 0;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.stage-floor,
+	.backdrop-floor,
+	.stage-ring::after,
+	.stage-scan,
+	.stage-dot {
+		animation: none;
+	}
+}
+.stage-body .iso-plate-corner[data-corner="fig"],
+.stage-body .iso-plate-corner[data-corner="title"] {
+	display: none;
+}
