@@ -11,8 +11,8 @@ export function Nav() {
 	const pathname = usePathname();
 
 	return (
-		<header className="sticky top-0 z-20 border-b border-border bg-background/85 backdrop-blur">
-			<div className="mx-auto flex max-w-[1800px] items-center justify-between gap-4 px-5 py-3 sm:px-8 lg:px-12 xl:px-16">
+		<header className="fixed inset-x-0 top-3 z-30 flex justify-center px-3">
+			<div className="plate flex w-full max-w-4xl items-center justify-between gap-4 border border-border bg-background/70 px-4 py-2 backdrop-blur-md">
 				<Link href="/" className="flex items-center gap-2">
 					<Logo />
 					<span className="font-display text-base">{SITE.name.toLowerCase()}</span>

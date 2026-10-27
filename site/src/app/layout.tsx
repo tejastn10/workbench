@@ -52,7 +52,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 					<PageLines />
 					<div className="relative z-10 flex min-h-screen flex-col">
 						<Nav />
-						<main className="mx-auto w-full max-w-[1800px] flex-1 px-5 sm:px-8 lg:px-12 xl:px-16">
+						<main className="mx-auto w-full max-w-[1800px] flex-1 px-5 pt-16 sm:px-8 lg:px-12 xl:px-16">
 							{children}
 						</main>
 						<Footer />
