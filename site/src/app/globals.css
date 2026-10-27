@@ -468,3 +468,28 @@ html.js [data-reveal][data-in] {
 	transform: none;
 }
 
+/* site backdrop: a perspective floor toward the horizon */
+.backdrop-floor {
+	position: absolute;
+	left: -30%;
+	right: -30%;
+	bottom: -10%;
+	height: 55%;
+	transform: perspective(600px) rotateX(72deg);
+	transform-origin: 50% 100%;
+	background-image:
+		linear-gradient(hsl(var(--foreground) / 0.05) 1px, transparent 1px),
+		linear-gradient(90deg, hsl(var(--foreground) / 0.05) 1px, transparent 1px);
+	background-size: 64px 64px;
+	animation: floor-run 14s linear infinite;
+	mask-image: linear-gradient(to top, black, transparent 85%);
+}
+
+/* section numbers: § 01 */
+.section-num {
+	font-family: var(--font-mono);
+	font-size: 0.65rem;
+	letter-spacing: 0.16em;
+	color: hsl(var(--muted-foreground));
+}
+
