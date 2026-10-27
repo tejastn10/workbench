@@ -455,3 +455,16 @@ html.js .stage[data-live] .stage-rig {
 .stage-body .iso-plate-corner[data-corner="title"] {
 	display: none;
 }
+/* reveal on scroll */
+html.js [data-reveal] {
+	opacity: 0;
+	transform: translateY(28px);
+	transition:
+		opacity 0.8s var(--ease),
+		transform 0.8s var(--ease);
+}
+html.js [data-reveal][data-in] {
+	opacity: 1;
+	transform: none;
+}
+

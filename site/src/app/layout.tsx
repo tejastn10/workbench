@@ -7,6 +7,7 @@ import type { ReactNode } from "react";
 import { Footer } from "@/components/footer";
 import { Nav } from "@/components/nav";
 import { PageLines } from "@/components/page-lines";
+import { Reveal } from "@/components/reveal";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SITE } from "@/data/site";
 
@@ -40,6 +41,12 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 			suppressHydrationWarning
 			className={`${GeistMono.variable} ${archivo.variable} ${archivoBlack.variable}`}
 		>
+			<head>
+				<script
+					// biome-ignore lint/security/noDangerouslySetInnerHtml: one static line, no input
+					dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }}
+				/>
+			</head>
 			<body className="antialiased">
 				<ThemeProvider>
 					<PageLines />
@@ -49,6 +56,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 							{children}
 						</main>
 						<Footer />
+						<Reveal />
 					</div>
 				</ThemeProvider>
 			</body>
