@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CodeBlock } from "@/components/code-block";
+import { Sequencer } from "@/components/figures/players";
 import { PageHeader } from "@/components/page-header";
 import { Section } from "@/components/section";
 import { SkillCard } from "@/components/skill-card";
@@ -37,6 +38,9 @@ export default function WorkflowsPage() {
 	return (
 		<>
 			<PageHeader
+				fig="Fig 3"
+				figTitle="Sequencer"
+				figure={<Sequencer />}
 				label="Composition"
 				title="Use skills together"
 				intro="Most tasks need several skills in order — plan, design, build, review, ship. Using them together is skill composition. A workflow skill is the orchestrator that names the sequence."
