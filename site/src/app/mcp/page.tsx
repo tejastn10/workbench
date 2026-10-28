@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CodeBlock } from "@/components/code-block";
+import { GroundStation } from "@/components/figures/players";
 import { PageHeader } from "@/components/page-header";
 import { MCP_ADD, MCP_JSON, SITE } from "@/data/site";
 import { getMcpServers } from "@/lib/content";
@@ -15,14 +16,17 @@ export default function McpPage() {
 	return (
 		<>
 			<PageHeader
+				fig="Fig 5"
+				figTitle="Ground station"
+				figure={<GroundStation />}
 				label="MCP & tooling"
 				title="Docs on tap, GitHub via gh"
 				intro="Context7 covers version-pinned docs for the long tail, so there are no per-framework servers. GitHub access is the gh CLI, not an MCP server — it's already authenticated and adds no tool-list bloat."
 			/>
 
-			<section className="border-b border-border py-12">
-				<span className="section-label">Servers</span>
-				<ul className="mt-5 divide-y divide-border border border-border">
+			<section data-reveal className="border-b border-border py-12">
+				<span className="section-label marked">Servers</span>
+				<ul className="mt-5 plate divide-y divide-border border border-border">
 					{servers.map((s) => (
 						<li key={s.name}>
 							<a
@@ -42,15 +46,15 @@ export default function McpPage() {
 				</ul>
 			</section>
 
-			<section className="border-b border-border py-12">
-				<span className="section-label">Claude Code</span>
+			<section data-reveal className="border-b border-border py-12">
+				<span className="section-label marked">Claude Code</span>
 				<div className="mt-5">
 					<CodeBlock code={MCP_ADD} />
 				</div>
 			</section>
 
-			<section className="py-12">
-				<span className="section-label">Or a project .mcp.json</span>
+			<section data-reveal className="py-12">
+				<span className="section-label marked">Or a project .mcp.json</span>
 				<p className="mt-3 text-sm text-muted-foreground">
 					Also VS Code (<code>.vscode/mcp.json</code>) and Codex (<code>~/.codex/config.toml</code>)
 					— per-client blocks in{" "}
