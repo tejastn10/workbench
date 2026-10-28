@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CodeBlock } from "@/components/code-block";
+import { Launch } from "@/components/figures/players";
 import { PageHeader } from "@/components/page-header";
 import { INSTALL_AGNOSTIC, INSTALL_FULL, INSTALL_PLUGIN, INSTALL_TARGETS, SITE } from "@/data/site";
 
@@ -13,6 +14,9 @@ export default function InstallPage() {
 	return (
 		<>
 			<PageHeader
+				fig="Fig 7"
+				figTitle="Four routes up"
+				figure={<Launch />}
 				label="Install"
 				title="Any agent, or a plugin"
 				intro={
@@ -23,8 +27,8 @@ export default function InstallPage() {
 				}
 			/>
 
-			<section className="border-b border-border py-12">
-				<span className="section-label">Tool-agnostic — npx skills</span>
+			<section data-reveal className="border-b border-border py-12">
+				<span className="section-label marked">Tool-agnostic — npx skills</span>
 				<p className="mt-3 text-sm text-muted-foreground">
 					Claude Code, Codex, Cursor, Copilot, Windsurf, and ~30 more. The <code>skills</code> CLI
 					drops the <code>SKILL.md</code> files into each agent's own location.
@@ -34,8 +38,8 @@ export default function InstallPage() {
 				</div>
 			</section>
 
-			<section className="border-b border-border py-12">
-				<span className="section-label">Claude Code plugin</span>
+			<section data-reveal className="border-b border-border py-12">
+				<span className="section-label marked">Claude Code plugin</span>
 				<p className="mt-3 text-sm text-muted-foreground">
 					Managed &amp; versioned — skills + the <code>commands/</code> slash commands + the{" "}
 					<code>.mcp.json</code> servers in one bundle.
@@ -54,8 +58,8 @@ export default function InstallPage() {
 				</p>
 			</section>
 
-			<section className="border-b border-border py-12">
-				<span className="section-label">Or clone &amp; symlink</span>
+			<section data-reveal className="border-b border-border py-12">
+				<span className="section-label marked">Or clone &amp; symlink</span>
 				<p className="mt-3 text-sm text-muted-foreground">
 					Editable skills, <code>git pull</code> to update.
 				</p>
@@ -64,11 +68,11 @@ export default function InstallPage() {
 				</div>
 			</section>
 
-			<section className="border-b border-border py-12">
-				<span className="section-label">Per agent</span>
+			<section data-reveal className="border-b border-border py-12">
+				<span className="section-label marked">Per agent</span>
 				<div className="mt-5 space-y-3">
 					{INSTALL_TARGETS.map((t) => (
-						<div key={t.tool} className="border border-border bg-card p-4">
+						<div key={t.tool} className="plate border border-border bg-card p-4">
 							<h2 className="text-sm font-bold">{t.tool}</h2>
 							<p className="mt-1.5 text-[0.84rem] leading-relaxed text-muted-foreground">
 								{t.body}
@@ -78,8 +82,8 @@ export default function InstallPage() {
 				</div>
 			</section>
 
-			<section className="border-b border-border py-12">
-				<span className="section-label">Per project, once</span>
+			<section data-reveal className="border-b border-border py-12">
+				<span className="section-label marked">Per project, once</span>
 				<ol className="mt-5 list-decimal space-y-2 pl-5 text-sm text-muted-foreground">
 					<li>
 						Copy <code>CONTEXT.md</code> into the project and fill in the glossary, stack, and
@@ -95,8 +99,8 @@ export default function InstallPage() {
 				</ol>
 			</section>
 
-			<section className="py-12">
-				<span className="section-label">Build your own review skill</span>
+			<section data-reveal className="py-12">
+				<span className="section-label marked">Build your own review skill</span>
 				<p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
 					The review skills are generated from a real corpus of your PR comments, not best-practice
 					lists. On the machine with repo access, run the{" "}
