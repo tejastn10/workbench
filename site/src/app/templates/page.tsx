@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Stamps } from "@/components/figures/players";
 import { PageHeader } from "@/components/page-header";
 import { SITE } from "@/data/site";
 import { getTemplates } from "@/lib/content";
@@ -22,14 +23,17 @@ export default function TemplatesPage() {
 	return (
 		<>
 			<PageHeader
+				fig="Fig 4"
+				figTitle="Stamp rack"
+				figure={<Stamps />}
 				label="Templates"
 				title="Docs that render clean"
 				intro="Copied into a project, driven by the skills in skills/docs and skills/debugging. Never edited in place."
 			/>
 
-			<section className="border-b border-border py-12">
-				<span className="section-label">The templates</span>
-				<ul className="mt-5 divide-y divide-border border border-border">
+			<section data-reveal className="border-b border-border py-12">
+				<span className="section-label marked">The templates</span>
+				<ul className="mt-5 plate divide-y divide-border border border-border">
 					{templates.map((t) => (
 						<li key={t.file} className="flex items-baseline justify-between gap-4 p-4">
 							<a
@@ -44,8 +48,8 @@ export default function TemplatesPage() {
 				</ul>
 			</section>
 
-			<section className="border-b border-border py-12">
-				<span className="section-label">One shared format</span>
+			<section data-reveal className="border-b border-border py-12">
+				<span className="section-label marked">One shared format</span>
 				<ul className="mt-5 space-y-2 text-sm text-muted-foreground">
 					{FORMAT.map((f) => (
 						<li key={f}>— {f}</li>
@@ -53,8 +57,8 @@ export default function TemplatesPage() {
 				</ul>
 			</section>
 
-			<section className="py-12">
-				<span className="section-label">Where they live in a project</span>
+			<section data-reveal className="py-12">
+				<span className="section-label marked">Where they live in a project</span>
 				<pre className="mt-5">
 					<code>{`docs/
 ├── prd/NNNN-slug.md
