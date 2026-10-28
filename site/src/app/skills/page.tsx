@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Cabinet } from "@/components/figures/players";
 import { PageHeader } from "@/components/page-header";
 import { Section } from "@/components/section";
 import { SkillCard } from "@/components/skill-card";
@@ -17,6 +18,9 @@ export default function SkillsPage() {
 	return (
 		<>
 			<PageHeader
+				fig="Fig 2"
+				figTitle="Parts cabinet"
+				figure={<Cabinet />}
 				label="Skills"
 				title="Ranked, opinionated, per stack"
 				intro="The PR-review skills are distilled from a real ~120-comment corpus, then carried onto the other stacks. Everything else encodes a specific working method. Each is a self-contained SKILL.md."
