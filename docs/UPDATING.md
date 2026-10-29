@@ -82,8 +82,8 @@ into with `--project`, re-run it there — copies don't follow `git pull`:
 ## 4. The website
 
 Nothing to run. Pushing `site/**` to `main` triggers
-[`.github/workflows/pages.yml`](../.github/workflows/pages.yml), which builds Fig 1
-from `site/figures/` and deploys to <https://tejastn10.github.io/workbench/>.
+[`.github/workflows/pages.yml`](../.github/workflows/pages.yml), which builds the page
+figures from `site/figures/` and deploys to <https://tejastn10.github.io/workbench/>.
 A skills-only push does **not** redeploy the site (the workflow filters on `site/**`);
 run it by hand when the skill counts or workflows changed:
 
