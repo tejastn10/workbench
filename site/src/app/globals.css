@@ -442,19 +442,6 @@ html.js .stage[data-live] .stage-rig {
 	}
 }
 
-@media (prefers-reduced-motion: reduce) {
-	.stage-floor,
-	.backdrop-floor,
-	.stage-ring::after,
-	.stage-scan,
-	.stage-dot {
-		animation: none;
-	}
-}
-.stage-body .iso-plate-corner[data-corner="fig"],
-.stage-body .iso-plate-corner[data-corner="title"] {
-	display: none;
-}
 /* reveal on scroll */
 html.js [data-reveal] {
 	opacity: 0;
@@ -493,6 +480,19 @@ html.js [data-reveal][data-in] {
 	color: hsl(var(--muted-foreground));
 }
 
+@media (prefers-reduced-motion: reduce) {
+	.stage-floor,
+	.backdrop-floor,
+	.stage-ring::after,
+	.stage-scan,
+	.stage-dot {
+		animation: none;
+	}
+}
+.stage-body .iso-plate-corner[data-corner="fig"],
+.stage-body .iso-plate-corner[data-corner="title"] {
+	display: none;
+}
 @media (max-width: 640px) {
 	.stage {
 		padding: 2rem 0 3rem;
