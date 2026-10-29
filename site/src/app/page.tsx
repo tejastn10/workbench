@@ -1,27 +1,40 @@
 import Link from "next/link";
-import { BracketField } from "@/components/bracket-field";
 import { CodeBlock } from "@/components/code-block";
-import { Logo } from "@/components/logo";
+import { Decode } from "@/components/decode";
+import { Stage } from "@/components/stage";
 import { Station } from "@/components/station";
 import { ANATOMY, INSTALL_SHORT, SITE } from "@/data/site";
 import { getMcpServers, getSkillCount, getSkills, getTemplates } from "@/lib/content";
 
 const EXPLORE = [
-	{ href: "/skills", label: "Skills", blurb: "Every skill, grouped by category." },
+	{ href: "/skills", fig: "Fig 2", label: "Skills", blurb: "Every skill, grouped by category." },
 	{
 		href: "/workflows",
+		fig: "Fig 3",
 		label: "Compose",
 		blurb: "Use several skills together — orchestration, workflows, how to trigger a bundle.",
 	},
-	{ href: "/templates", label: "Templates", blurb: "PRD, ADR, and postmortem — one house format." },
-	{ href: "/mcp", label: "MCP & tooling", blurb: "Context7, DeepWiki, and GitHub via gh." },
+	{
+		href: "/templates",
+		fig: "Fig 4",
+		label: "Templates",
+		blurb: "PRD, ADR, and postmortem — one house format.",
+	},
+	{
+		href: "/mcp",
+		fig: "Fig 5",
+		label: "MCP & tooling",
+		blurb: "Context7, DeepWiki, and GitHub via gh.",
+	},
 	{
 		href: "/conventions",
+		fig: "Fig 6",
 		label: "Conventions",
 		blurb: "Commits, branches, review priorities, phased delivery.",
 	},
 	{
 		href: "/install",
+		fig: "Fig 7",
 		label: "Install",
 		blurb: "Clone, link into Claude Code / VS Code, point at AGENTS.md.",
 	},
@@ -35,62 +48,51 @@ export default function Home() {
 
 	return (
 		<>
-			{/* ── Hero ─────────────────────────────────────────────── */}
-			<section className="relative flex min-h-[82vh] items-center overflow-hidden border-b border-border">
-				{/* animated nested-bracket field, faded through the middle where the text sits */}
-				<BracketField
-					fill
-					rows={13}
-					size="text-sm sm:text-base"
-					className="pointer-events-none absolute inset-0 py-8 [mask-image:linear-gradient(to_bottom,black,transparent_30%,transparent_70%,black)]"
-				/>
-
-				<div className="relative grid w-full items-center gap-10 py-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:gap-12">
-					<div className="min-w-0">
-						<div className="section-label flex items-center gap-2">
-							<Logo size={15} /> Personal <span className="text-border">/</span> open{" "}
-							<span className="text-border">/</span> MIT
-						</div>
-
-						<h1 className="font-display mt-7 text-[2.6rem] leading-[1.0] sm:text-6xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
-							One bench for
-							<br />
-							<span className="text-muted-foreground">every coding agent.</span>
-						</h1>
-
-						<p className="mt-7 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-							{SITE.tagline} Whichever agent you drive pulls from the same conventions —{" "}
-							<span className="italic">{SITE.sub.toLowerCase()}</span>
-						</p>
-
-						<div className="mt-9 flex flex-wrap gap-2 font-mono text-xs uppercase tracking-wider">
-							<Link
-								href="/skills"
-								className="border border-foreground bg-foreground px-4 py-2.5 font-mono text-background transition-opacity hover:opacity-80"
-							>
-								Browse skills →
-							</Link>
-							<a
-								href={SITE.repo}
-								className="border border-border bg-background px-4 py-2.5 transition-colors hover:border-foreground/40 hover:text-foreground"
-							>
-								GitHub repo
-							</a>
-							<a
-								href={`${SITE.repo}/blob/main/AGENTS.md`}
-								className="border border-border bg-background px-4 py-2.5 transition-colors hover:border-foreground/40 hover:text-foreground"
-							>
-								AGENTS.md
-							</a>
-						</div>
-
-						<div className="mt-11">
-							<CodeBlock code={INSTALL_SHORT} />
-						</div>
+			{/* ── Hero: centred, the station on its stage ───────────── */}
+			<section className="relative border-b border-border">
+				<div className="mx-auto max-w-4xl pt-16 text-center sm:pt-24">
+					<span className="section-label marked">
+						<Decode text="Workbench / personal / open / MIT" />
+					</span>
+					<h1 className="font-display mt-7 text-[2.8rem] leading-[0.95] sm:text-7xl lg:text-8xl">
+						One bench for
+						<br />
+						<span className="text-muted-foreground">every coding agent.</span>
+					</h1>
+					<p className="mx-auto mt-7 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+						{SITE.tagline} Whichever agent you drive pulls from the same conventions —{" "}
+						<span className="italic">{SITE.sub.toLowerCase()}</span>
+					</p>
+					<div className="mt-9 flex flex-wrap justify-center gap-2 font-mono text-xs uppercase tracking-wider">
+						<Link
+							href="/skills"
+							className="plate border border-foreground bg-foreground px-5 py-3 font-mono text-background transition-opacity hover:opacity-80"
+						>
+							Browse skills →
+						</Link>
+						<a
+							href={SITE.repo}
+							className="plate border border-border bg-background px-5 py-3 transition-colors hover:border-foreground/40"
+						>
+							GitHub repo
+						</a>
+						<a
+							href={`${SITE.repo}/blob/main/AGENTS.md`}
+							className="plate border border-border bg-background px-5 py-3 transition-colors hover:border-foreground/40"
+						>
+							AGENTS.md
+						</a>
 					</div>
-
-					<Station />
 				</div>
+				<div className="mx-auto mt-4 max-w-6xl">
+					<Stage code="Fig 1" label="Docking">
+						<Station />
+					</Stage>
+				</div>
+				<div className="mx-auto max-w-xl pb-16">
+					<CodeBlock code={INSTALL_SHORT} />
+				</div>
+				<div className="ruler" aria-hidden />
 			</section>
 
 			{/* ── How it fits together ─────────────────────────────── */}
