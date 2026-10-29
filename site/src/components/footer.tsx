@@ -25,7 +25,14 @@ export function Footer() {
 				>
 					anatomy
 				</a>{" "}
-				by Ryan (MIT).
+				by Ryan (MIT); motion guided by{" "}
+				<a
+					href="https://github.com/lottiefiles/motion-design-skill"
+					className="underline-slide text-foreground"
+				>
+					motion-design
+				</a>{" "}
+				by LottieFiles (MIT).
 			</p>
 		</footer>
 	);
