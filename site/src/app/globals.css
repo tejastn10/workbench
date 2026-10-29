@@ -493,3 +493,11 @@ html.js [data-reveal][data-in] {
 	color: hsl(var(--muted-foreground));
 }
 
+@media (max-width: 640px) {
+	.stage {
+		padding: 2rem 0 3rem;
+	}
+	.stage-tag[data-c="bottom"] {
+		display: none;
+	}
+}
