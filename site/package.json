@@ -18,7 +18,7 @@
 		"check:fix": "biome check --write ."
 	},
 	"engines": {
-		"node": ">=22"
+		"node": ">=24"
 	},
 	"packageManager": "npm@10.9.0",
 	"dependencies": {
@@ -32,7 +32,7 @@
 	"devDependencies": {
 		"@biomejs/biome": "^2.5.0",
 		"@tailwindcss/postcss": "^4.1.0",
-		"@types/node": "^22.0.0",
+		"@types/node": "^24.19.2",
 		"@types/react": "^19.1.0",
 		"@types/react-dom": "^19.1.0",
 		"tailwindcss": "^4.1.0",
