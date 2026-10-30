@@ -80,6 +80,7 @@
     "./skills/queues/sqs-consumer",
     "./skills/security/audit-dependencies",
     "./skills/security/security-review",
+    "./skills/study/feynman-check",
     "./skills/visual/anatomy",
     "./skills/visual/motion-design",
     "./skills/workflows/adopt-repo",
