@@ -1,12 +1,14 @@
 # skills/visual
 
 Explaining an idea with a picture you can touch, and making it move well — figures
-and animation for docs, blog posts and landing pages. Both skills are vendored.
+and animation for docs, blog posts and landing pages. `anatomy` and `motion-design`
+are vendored; `diagram` is adapted.
 
 | Skill            | Use for                                                   |
 | ---------------- | ----------------------------------------------------- |
 | `visual/anatomy` | Build an interactive isometric figure that explains a technical idea as a real, working machine (SVG, WebGL, optional 3D) |
 | `visual/motion-design` | Timing, easing, choreography and Disney principles for UI animation — CSS, Framer Motion, GSAP, Lottie |
+| `visual/diagram` | English or Mermaid → `.mmd` + SVG + PNG + editable `.excalidraw` for docs and READMEs |
 
 `visual/anatomy` is vendored from [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy)
 (MIT, © 2026 Ryan) with its kit, scripts and example sources. It needs Node 20.10+,
@@ -37,3 +39,10 @@ cp /tmp/motion-design/LICENSE skills/visual/motion-design/LICENSE
 
 Then put the attribution paragraph back under the title in `SKILL.md` and update the
 pinned commit.
+
+`visual/diagram` is adapted from [garrytan/gstack](https://github.com/garrytan/gstack)
+`diagram` (MIT, © 2026 Garry Tan), upstream `225a210`. Upstream's render bundle and
+`gstack-render` are swapped for the pinned Mermaid CLI, so it isn't an rsync refresh:
+re-read upstream's `diagram/SKILL.md.tmpl` and carry over any rule changes by hand.
+
+For diagrams you learn from step by step, see `study/flow-diagram`.
