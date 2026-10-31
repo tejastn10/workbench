@@ -23,7 +23,8 @@ the others for a whole task (feature, change, incident, onboarding). See
 | `deployment/`    | Migrations, rollout, release, rollback, hotfix              |
 | `incident/`      | Bug investigation, live incident response, on-call, postmortem |
 | `security/`      | Whole-surface security review, dependency audit             |
-| `visual/`        | Figures and motion — isometric explainers (`anatomy`), motion design (`motion-design`), both vendored |
+| `study/`         | Learning properly — Head First lessons, paper dissection, step-through flow diagrams, Feynman checks |
+| `visual/`        | Figures and motion — isometric explainers (`anatomy`), motion design (`motion-design`), both vendored; static diagrams (`diagram`) |
 | `meta/`          | Maintaining the workbench; building review skills from a corpus |
 
 ## Installing
