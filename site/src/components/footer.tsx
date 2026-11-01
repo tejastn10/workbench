@@ -34,6 +34,28 @@ export function Footer() {
 				</a>{" "}
 				by LottieFiles (MIT).
 			</p>
+			<p className="mt-1">
+				<code>diagram</code> adapted from{" "}
+				<a href="https://github.com/garrytan/gstack" className="underline-slide text-foreground">
+					garrytan/gstack
+				</a>{" "}
+				by Garry Tan; <code>feynman-check</code> from{" "}
+				<a
+					href="https://github.com/haunguyendev/feynman-skill"
+					className="underline-slide text-foreground"
+				>
+					feynman-skill
+				</a>{" "}
+				and{" "}
+				<a
+					href="https://github.com/Freya0525/supertutor-skill"
+					className="underline-slide text-foreground"
+				>
+					supertutor-skill
+				</a>{" "}
+				(all MIT). <code>head-first</code> follows the Head First method of Kathy Sierra and Bert
+				Bates.
+			</p>
 		</footer>
 	);
 }
