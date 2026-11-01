@@ -33,7 +33,7 @@ const WORKFLOWS_DIR = join(REPO, "skills", "workflows");
 const WORKFLOW_ORDER = ["ship-change", "new-feature", "handle-incident", "adopt-repo"];
 const AGENTS = ["Claude Code", "Codex", "Cursor", "VS Code"];
 // Module order along the truss, nearest the core first; unknown categories append.
-const MODULE_ORDER = ["planning", "design", "quality", "pr-review", "data", "queues", "observability", "deployment", "incident", "security", "visual", "meta"];
+const MODULE_ORDER = ["planning", "design", "quality", "pr-review", "data", "queues", "observability", "deployment", "incident", "security", "study", "visual", "meta"];
 
 function stepsOf(text) {
 	const steps = [];

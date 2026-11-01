@@ -19,7 +19,7 @@ export const PAGE = process.argv.includes("--page");
 export const f2 = (v) => Math.round(v * 100) / 100;
 
 // ── repo facts ──────────────────────────────────────────────────────────────
-export const MODULE_ORDER = ["planning", "design", "quality", "pr-review", "data", "queues", "observability", "deployment", "incident", "security", "visual", "meta"];
+export const MODULE_ORDER = ["planning", "design", "quality", "pr-review", "data", "queues", "observability", "deployment", "incident", "security", "study", "visual", "meta"];
 
 function stepsOf(text) {
 	const steps = [];
