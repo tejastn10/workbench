@@ -17,7 +17,7 @@
 
 ## Features 🌟
 
-- **13 skill categories** — workflows, planning, design, PR review, quality, data, queues, observability, deployment, incident, security, visual, meta. Each grounded in real conventions, not generic best practice.
+- **14 skill categories** — workflows, planning, design, PR review, quality, data, queues, observability, deployment, incident, security, study, visual, meta. Each grounded in real conventions, not generic best practice.
 - **Workflows**: orchestrator skills that invoke the right *sequence* of others for a whole task (feature, change, incident, repo onboarding).
 - **PR Review Skills**: Per-stack (NestJS/TypeScript, Go, Python, React, DevOps), distilled from ~120 real review comments.
 - **Data & infra**: Postgres/Mongo/BigQuery/Redis indexing and aggregation; SQS/Kafka/BullMQ lifecycle and DLQ; OTEL + the LGTM stack.
@@ -26,6 +26,8 @@
 - **Deslopify**: a subtractive pass that strips AI slop from freshly written code before commit.
 - **Anatomy figures**: explain an idea as an interactive isometric machine — [`wheresryan22/anatomy`](https://github.com/wheresryan22/anatomy) by Ryan, vendored under MIT.
 - **Motion design**: timing, easing and choreography for UI animation — [`lottiefiles/motion-design-skill`](https://github.com/lottiefiles/motion-design-skill) by LottieFiles, vendored under MIT.
+- **Study**: learn a topic the Head First way, dissect a research paper with its history and references, step through a flow diagram, then explain it back for a Feynman check — each as an interactive HTML page.
+- **Diagrams**: English or Mermaid → source, SVG, PNG and an editable `.excalidraw` — adapted from [`garrytan/gstack`](https://github.com/garrytan/gstack)'s `diagram` by Garry Tan, MIT.
 - **Doc templates**: PRD, ADR, POSTMORTEM — one house format, filled by skills.
 - **MCP Setup**: Context7 and DeepWiki configs with per-client setup notes (GitHub goes through `gh`).
 - **Global Conventions**: commit, branch, and review standards in one place — see [AGENTS.md](AGENTS.md).
@@ -88,7 +90,7 @@ workbench/
 │   └── marketplace.json    # this repo as its own Claude Code marketplace
 ├── .mcp.json               # MCP servers the plugin adds (Context7, DeepWiki)
 ├── commands/               # slash commands — /new-feature, /ship-change, /review, …
-├── skills/                 # 13 categories · one dir per skill (<category>/<name>/SKILL.md)
+├── skills/                 # 14 categories · one dir per skill (<category>/<name>/SKILL.md)
 │   ├── workflows/          #   orchestrators: new-feature, ship-change, handle-incident, adopt-repo
 │   ├── planning/           #   grill, orient, evaluate-dependency, spike, phased-delivery, handoff, write-prd/adr
 │   ├── design/             #   design-endpoint/event/schema, evolve-contract, scaffold-*
@@ -100,7 +102,8 @@ workbench/
 │   ├── deployment/         #   data/code-migration, deploy-service, cut-release, rollback, hotfix
 │   ├── incident/           #   investigate-bug, incident-response, on-call, postmortem
 │   ├── security/           #   security-review, audit-dependencies
-│   ├── visual/             #   anatomy, motion-design — figures and animation (vendored, MIT)
+│   ├── study/              #   head-first, dissect-paper, flow-diagram, feynman-check — interactive learning
+│   ├── visual/             #   anatomy, motion-design (vendored, MIT), diagram — figures and animation
 │   └── meta/               #   write-skill, audit-skills, distill-review-style
 ├── scripts/                # install-skills.sh · validate-skills.mjs
 ├── lefthook.yml            # local git hooks — conventional commits, branch names, validation
@@ -140,5 +143,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE.md) fi
 ## Acknowledgments 🙌
 
 - Named **Workbench** — where the tools are kept, and kept sharp.
-- [`visual/anatomy`](skills/visual/anatomy/SKILL.md) is the work of Ryan ([@wheresryan22](https://github.com/wheresryan22)) — [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy), MIT. [`visual/motion-design`](skills/visual/motion-design/SKILL.md) is LottieFiles' work — [lottiefiles/motion-design-skill](https://github.com/lottiefiles/motion-design-skill), MIT. Several planning and quality skills adapt [Matt Pocock's skills](https://github.com/mattpocock/skills), MIT.
+- [`visual/anatomy`](skills/visual/anatomy/SKILL.md) is the work of Ryan ([@wheresryan22](https://github.com/wheresryan22)) — [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy), MIT. [`visual/motion-design`](skills/visual/motion-design/SKILL.md) is LottieFiles' work — [lottiefiles/motion-design-skill](https://github.com/lottiefiles/motion-design-skill), MIT. [`visual/diagram`](skills/visual/diagram/SKILL.md) adapts Garry Tan's [garrytan/gstack](https://github.com/garrytan/gstack) `diagram`, MIT. Several planning, quality and study skills adapt [Matt Pocock's skills](https://github.com/mattpocock/skills), MIT. [`study/feynman-check`](skills/study/feynman-check/SKILL.md) adapts [haunguyendev/feynman-skill](https://github.com/haunguyendev/feynman-skill) and [Freya0525/supertutor-skill](https://github.com/Freya0525/supertutor-skill) (cskwork), MIT. [`study/dissect-paper`](skills/study/dissect-paper/SKILL.md) builds on S. Keshav's "How to Read a Paper", Andrej Karpathy's [`read-arxiv-paper`](https://github.com/karpathy/nanochat) and [a1henu/paper-reading-skill](https://github.com/a1henu/paper-reading-skill). [`study/head-first`](skills/study/head-first/SKILL.md) follows the Head First method of Kathy Sierra and Bert Bates.
 - Built with ❤️ for coding agents.
