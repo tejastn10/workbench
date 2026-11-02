@@ -254,6 +254,8 @@ pre {
 
 .stage {
 	position: relative;
+	/* the grid floor runs wider than the stage; never let it widen the page */
+	overflow-x: clip;
 	perspective: 1700px;
 	perspective-origin: 50% 20%;
 	padding: 3.5rem 0 4.5rem;
