@@ -6,7 +6,6 @@
 
 import { useEffect, useRef } from "react";
 import "@/generated/anatomy.css";
-import { asset } from "@/lib/asset";
 
 export type Ctx = {
 	svg: SVGSVGElement;
@@ -40,7 +39,7 @@ export function Figure({ name, player, ratio }: { name: string; player: Player; 
 		if (!root) return;
 		let disposed = false;
 		let cleanup = () => {};
-		fetch(asset(`/figures/${name}.html`))
+		fetch(`/figures/${name}.html`)
 			.then((r) => (r.ok ? r.text() : Promise.reject(new Error(String(r.status)))))
 			.then((html) => {
 				if (disposed) return;

@@ -10,7 +10,6 @@
 import { useEffect, useRef } from "react";
 import "@/generated/anatomy.css";
 import DATA from "@/generated/station.json";
-import { asset } from "@/lib/asset";
 
 type Pt = [number, number];
 
@@ -49,7 +48,7 @@ export function Station() {
 		let disposed = false;
 		let cleanup = () => {};
 
-		fetch(asset("/figures/station.html"))
+		fetch("/figures/station.html")
 			.then((r) => (r.ok ? r.text() : Promise.reject(new Error(String(r.status)))))
 			.then((html) => {
 				if (disposed) return;
