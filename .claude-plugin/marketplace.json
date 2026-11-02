@@ -9,7 +9,7 @@
     {
       "name": "workbench",
       "source": "./",
-      "description": "Agent skills for real engineering — PR review (per stack), planning, design, data (Postgres/Mongo/BigQuery/Redis), queues (SQS/Kafka/BullMQ), observability, deployment, incident response, security, and workflow orchestration.",
+      "description": "Agent skills for real engineering — PR review (per stack), planning, design, data (Postgres/Mongo/BigQuery/Redis), queues (SQS/Kafka/BullMQ), observability, deployment, incident response, security, study (lessons, papers, diagrams), and workflow orchestration.",
       "category": "engineering",
       "keywords": [
         "claude-code",

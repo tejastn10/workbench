@@ -15,7 +15,8 @@ claude plugin validate .                  # manifest + marketplace
 
 Bump `version` in [`.claude-plugin/plugin.json`](../.claude-plugin/plugin.json) on
 any change you want plugin installs to receive — `plugin update` compares versions,
-so an unbumped push is invisible to them. (`0.2.0` added `visual/anatomy`, `0.3.0` added `visual/motion-design`.)
+so an unbumped push is invisible to them. (`0.2.0` added `visual/anatomy`, `0.3.0` added `visual/motion-design`, `0.4.0` added
+`study/` and `visual/diagram`.)
 
 ---
 
@@ -37,8 +38,8 @@ Or inside a running session:
 /reload-plugins
 ```
 
-Check: `claude plugin details workbench@tejastn10` lists `anatomy` and `motion-design`
-among the skills, and `/workbench:anatomy` autocompletes.
+Check: `claude plugin details workbench@tejastn10` lists `anatomy`, `motion-design`,
+`diagram` and the `study/` skills, and `/workbench:head-first` autocompletes.
 
 ---
 
@@ -54,11 +55,13 @@ npx skills@latest update -p -y            # inside a repo with project installs
 `update` only refreshes skills you already have. A **new** skill has to be added once:
 
 ```bash
-npx skills@latest add tejastn10/workbench -g -s anatomy -s motion-design -a claude-code -y
+npx skills@latest add tejastn10/workbench -g -s anatomy -s motion-design -s diagram \
+  -s head-first -s dissect-paper -s flow-diagram -s feynman-check -a claude-code -y
 #   swap / add agents: -a codex, -a cursor, -a '*' for every agent it detects
 ```
 
-Check: `npx skills@latest ls -g` shows `anatomy` and `motion-design`.
+Check: `npx skills@latest ls -g` shows `anatomy`, `motion-design`, `diagram` and the
+`study/` skills.
 
 ---
 
@@ -66,7 +69,7 @@ Check: `npx skills@latest ls -g` shows `anatomy` and `motion-design`.
 
 ```bash
 cd ~/workbench && git pull
-./scripts/install-skills.sh               # re-link: picks up new skill dirs (anatomy, motion-design)
+./scripts/install-skills.sh               # re-link: picks up new skill dirs (study/*, diagram)
 ```
 
 Existing skills are symlinks, so `git pull` alone updates them; re-running the script
