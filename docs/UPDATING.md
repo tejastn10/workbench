@@ -84,15 +84,14 @@ into with `--project`, re-run it there — copies don't follow `git pull`:
 
 ## 4. The website
 
-Nothing to run. Pushing `site/**` to `main` triggers
-[`.github/workflows/pages.yml`](../.github/workflows/pages.yml), which builds the page
-figures from `site/figures/` and deploys to <https://tejastn10.github.io/workbench/>.
-A skills-only push does **not** redeploy the site (the workflow filters on `site/**`);
-run it by hand when the skill counts or workflows changed:
+Nothing to run. Vercel redeploys <https://workbench.tejastn10.com> on every push to
+`main`, skills-only pushes included: the build reads `skills/` and `docs/` for the counts
+and figures, so the project must not skip unaffected builds. Setup is in
+[`site/README.md`](../site/README.md#deploy-one-time).
 
-```bash
-gh workflow run pages.yml
-```
+Check: the push's deployment shows **Ready** in the Vercel dashboard (or
+`vercel ls workbench`). To redeploy without a push, use **Redeploy** on the latest
+deployment, or `vercel --prod` from the repo root.
 
 ---
 
