@@ -1,7 +1,8 @@
 # site
 
 The workbench site — a static Next.js app in the Nimbus theme (black/white, sharp
-corners, monospace, `PageLines`), deployed to GitHub Pages.
+corners, monospace, `PageLines`), deployed on Vercel at
+<https://workbench.tejastn10.com>.
 
 ## Pages
 
@@ -45,11 +46,15 @@ npm run build      # static export → site/out
 
 ## Deploy (one-time)
 
-1. Push `site/` and `.github/workflows/pages.yml` to `main`.
-2. Repo **Settings → Pages → Source: GitHub Actions**.
-3. Builds on any push touching `site/**`, publishes to
-   `https://tejastn10.github.io/workbench/`.
-4. Add the URL to the repo's **About** sidebar.
+1. Vercel → **Add New → Project** → import `tejastn10/workbench`.
+2. **Root Directory**: `site`. Keep **"Include files outside the root directory"** on —
+   the build reads `../skills` and `../docs` for the skill list and the figures.
+3. Framework Next.js, build `npm run build` (detected), Node 24 (matches `.nvmrc` and `engines`).
+4. **Settings → Domains** → add `workbench.tejastn10.com`. If tejastn10.com's DNS is on
+   Vercel it's automatic; otherwise add the CNAME Vercel shows
+   (`workbench` → `cname.vercel-dns.com`).
+5. Every push to `main` redeploys. Leave "skip unaffected projects" off: a skills-only
+   push changes the counts and figures too.
 
 ## Layout & motif
 
@@ -64,7 +69,7 @@ npm run build      # static export → site/out
 
 ## Notes
 
-- `next.config.ts` sets `basePath: /workbench` in production only.
+- Served from the domain root — no `basePath`.
 - Static export — no server, no API routes, no image optimization.
 - Font is Geist Mono. Swap `geist/font/mono` → `geist/font/pixel`
   (`GeistPixelSquare`) in `layout.tsx` for the exact Nimbus pixel face.
