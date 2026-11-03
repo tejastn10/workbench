@@ -58,14 +58,13 @@ npm run build      # static export → site/out
 
 ## Layout & motif
 
-- Content width is `max-w-6xl` (nav, main, footer, page-lines).
-- The hero (`app/page.tsx`) fills `min-h-[82vh]` with `BracketField` — animated
-  nested-bracket marquee rows (`<([{…}])>`), masked out through the middle where
-  the text sits — plus oversized `[ ]` framing glyphs that slowly breathe. The
-  install code block spans the full hero width.
-- Inner pages get a smaller bracket strip under `PageHeader`.
-- No dotted-grid background — the bracket field is the only texture.
-- `prefers-reduced-motion` disables all bracket animation.
+- Every page opens centred: a decoding HUD label, the title, the intro, then the page's
+  figure on its 3D `Stage` (flat-to-upright entrance, pointer tilt, HUD, grid floor).
+- Figures are built by `figures/<name>/build.mjs` with the anatomy kit and played by
+  `components/figures/` (`station.tsx` for the home page).
+- A floating centred nav, a perspective grid backdrop (`PageLines`), sections that
+  reveal on scroll, plate corners and a tick ruler. Black and white only.
+- `prefers-reduced-motion` stops every animation.
 
 ## Notes
 
