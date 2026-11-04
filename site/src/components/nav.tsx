@@ -12,7 +12,7 @@ export function Nav() {
 
 	return (
 		<header className="fixed inset-x-0 top-3 z-30 flex justify-center px-3">
-			<div className="plate flex w-full max-w-4xl items-center justify-between gap-4 border border-border bg-background/70 px-4 py-2 backdrop-blur-md">
+			<div className="plate flex w-full max-w-6xl items-center justify-between gap-4 border border-border bg-background/70 px-4 py-2 backdrop-blur-md">
 				<Link href="/" className="flex items-center gap-2">
 					<Logo />
 					<span className="font-display text-base">{SITE.name.toLowerCase()}</span>
