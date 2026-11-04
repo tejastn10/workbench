@@ -24,7 +24,7 @@ the others for a whole task (feature, change, incident, onboarding). See
 | `incident/`      | Bug investigation, live incident response, on-call, postmortem |
 | `security/`      | Whole-surface security review, dependency audit             |
 | `study/`         | Learning properly — Head First lessons, paper dissection, step-through flow diagrams, Feynman checks |
-| `visual/`        | Figures and motion — isometric explainers (`anatomy`), motion design (`motion-design`), both vendored; static diagrams (`diagram`) |
+| `visual/`        | Figures and motion — isometric explainers (`anatomy`), motion design (`motion-design`), both vendored; static diagrams (`diagram`), system design in your own Excalidraw components (`excalidraw-hld`) |
 | `meta/`          | Maintaining the workbench; building review skills from a corpus |
 
 ## Installing
