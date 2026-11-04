@@ -1,0 +1,33 @@
+{
+	"title": "URL shortener",
+	"tiers": [
+		{ "id": "clients", "title": "Clients", "nodes": [{ "id": "web", "use": "web-app" }, { "id": "mobile", "use": "mobile-app" }] },
+		{ "title": "Edge", "nodes": [{ "id": "dns", "use": "dns" }, { "id": "lb", "use": "load-balancer" }] },
+		{
+			"id": "svc",
+			"title": "Service Tier",
+			"nodes": [
+				{ "id": "write", "use": "service", "label": "<>\nShorten" },
+				{ "id": "read", "use": "autoscaling-servers", "label": "Redirect\nServers" }
+			]
+		},
+		{
+			"title": "Data Tier",
+			"nodes": [
+				{ "id": "db", "use": "database", "label": "URLs" },
+				{ "id": "cache", "use": "cache", "label": "Hot codes" }
+			]
+		},
+		{ "under": "svc", "title": "Analytics", "flow": "row", "nodes": [{ "id": "q", "use": "queue", "label": "Click events" }, { "id": "spark", "use": "spark" }] }
+	],
+	"edges": [
+		{ "from": "clients", "to": "dns", "label": "resolve" },
+		{ "from": "clients", "to": "lb", "label": "HTTPS" },
+		{ "from": "lb", "to": "write", "label": "POST /urls" },
+		{ "from": "lb", "to": "read", "label": "GET /:code" },
+		{ "from": "read", "to": "cache", "label": "lookup" },
+		{ "from": "write", "to": "db", "label": "insert" },
+		{ "from": "read", "to": "q", "label": "click" },
+		{ "from": "q", "to": "spark" }
+	]
+}
