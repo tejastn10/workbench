@@ -62,7 +62,7 @@ export function digestOf(script, extra) {
 }
 export function fresh(name, digest) {
 	const out = join(SITE, "src", "generated", `${name}.json`);
-	if (AUDIT || PAGE || !existsSync(out) || !existsSync(join(SITE, "public", "figures", `${name}.html`))) return false;
+	if (AUDIT || PAGE || !existsSync(out) || !existsSync(join(SITE, "public", "figures", `${name}.txt`))) return false;
 	try {
 		return JSON.parse(readFileSync(out, "utf8")).digest === digest;
 	} catch {
@@ -157,7 +157,8 @@ export function emit(name, H, { W, Ht, back = [], front = [], fig, title, hint, 
 	mkdirSync(join(SITE, "public", "figures"), { recursive: true });
 	writeFileSync(join(gen, `${name}.json`), JSON.stringify({ digest, readout, ...data }));
 	writeFileSync(join(gen, `${name}.css`), css2);
-	writeFileSync(join(SITE, "public", "figures", `${name}.html`), html);
+	// .txt, not .html: Vercel turns every exported .html into a page route, so /x.html 404s.
+	writeFileSync(join(SITE, "public", "figures", `${name}.txt`), html);
 	console.log(`${name}: ${H.R.items.length} items · ${(html.length / 1024) | 0} KB`);
 	if (PAGE) {
 		const theme = process.argv.includes("--light") ? "light" : "dark";

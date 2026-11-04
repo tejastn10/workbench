@@ -4,7 +4,7 @@
 // category. Every workflow step sends a signal along the truss and lights the module
 // that owns the step's skill. Step sequences come from the workflow skills.
 //
-//   node figures/station/build.mjs            writes src/generated/station.json + public/figures/station.html
+//   node figures/station/build.mjs            writes src/generated/station.json + public/figures/station.txt
 //   node figures/station/build.mjs --page     also writes a standalone page for the kit's checks
 //   node figures/station/build.mjs --audit    runs the kit's geometry audit
 import { createHash } from "node:crypto";
@@ -19,7 +19,8 @@ const KIT = join(REPO, "skills", "visual", "anatomy", "kit");
 const OUT_DIR = join(SITE, "src", "generated");
 const OUT = join(OUT_DIR, "station.json");
 const CSS_OUT = join(OUT_DIR, "anatomy.css");
-const HTML_OUT = join(SITE, "public", "figures", "station.html");
+// .txt, not .html: Vercel turns every exported .html into a page route, so /x.html 404s.
+const HTML_OUT = join(SITE, "public", "figures", "station.txt");
 
 const k = await import(join(KIT, "iso-kit.mjs"));
 const G = await import(join(KIT, "lathe.mjs"));

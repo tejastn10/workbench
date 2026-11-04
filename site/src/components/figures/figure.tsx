@@ -39,7 +39,7 @@ export function Figure({ name, player, ratio }: { name: string; player: Player; 
 		if (!root) return;
 		let disposed = false;
 		let cleanup = () => {};
-		fetch(`/figures/${name}.html`)
+		fetch(`/figures/${name}.txt`)
 			.then((r) => (r.ok ? r.text() : Promise.reject(new Error(String(r.status)))))
 			.then((html) => {
 				if (disposed) return;

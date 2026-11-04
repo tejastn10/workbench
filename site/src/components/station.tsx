@@ -48,7 +48,7 @@ export function Station() {
 		let disposed = false;
 		let cleanup = () => {};
 
-		fetch("/figures/station.html")
+		fetch("/figures/station.txt")
 			.then((r) => (r.ok ? r.text() : Promise.reject(new Error(String(r.status)))))
 			.then((html) => {
 				if (disposed) return;
