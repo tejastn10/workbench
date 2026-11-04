@@ -31,7 +31,7 @@ export default function TemplatesPage() {
 				intro="Copied into a project, driven by the skills in skills/docs and skills/debugging. Never edited in place."
 			/>
 
-			<section data-reveal className="border-b border-border py-12">
+			<section data-reveal className="column border-b border-border py-12">
 				<span className="section-label marked">The templates</span>
 				<ul className="mt-5 plate divide-y divide-border border border-border">
 					{templates.map((t) => (
@@ -48,7 +48,7 @@ export default function TemplatesPage() {
 				</ul>
 			</section>
 
-			<section data-reveal className="border-b border-border py-12">
+			<section data-reveal className="column border-b border-border py-12">
 				<span className="section-label marked">One shared format</span>
 				<ul className="mt-5 space-y-2 text-sm text-muted-foreground">
 					{FORMAT.map((f) => (
@@ -57,7 +57,7 @@ export default function TemplatesPage() {
 				</ul>
 			</section>
 
-			<section data-reveal className="py-12">
+			<section data-reveal className="column py-12">
 				<span className="section-label marked">Where they live in a project</span>
 				<pre className="mt-5">
 					<code>{`docs/

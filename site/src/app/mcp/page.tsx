@@ -24,7 +24,7 @@ export default function McpPage() {
 				intro="Context7 covers version-pinned docs for the long tail, so there are no per-framework servers. GitHub access is the gh CLI, not an MCP server — it's already authenticated and adds no tool-list bloat."
 			/>
 
-			<section data-reveal className="border-b border-border py-12">
+			<section data-reveal className="column border-b border-border py-12">
 				<span className="section-label marked">Servers</span>
 				<ul className="mt-5 plate divide-y divide-border border border-border">
 					{servers.map((s) => (
@@ -46,14 +46,14 @@ export default function McpPage() {
 				</ul>
 			</section>
 
-			<section data-reveal className="border-b border-border py-12">
+			<section data-reveal className="column border-b border-border py-12">
 				<span className="section-label marked">Claude Code</span>
 				<div className="mt-5">
 					<CodeBlock code={MCP_ADD} />
 				</div>
 			</section>
 
-			<section data-reveal className="py-12">
+			<section data-reveal className="column py-12">
 				<span className="section-label marked">Or a project .mcp.json</span>
 				<p className="mt-3 text-sm text-muted-foreground">
 					Also VS Code (<code>.vscode/mcp.json</code>) and Codex (<code>~/.codex/config.toml</code>)

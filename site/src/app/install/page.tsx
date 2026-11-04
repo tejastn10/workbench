@@ -27,7 +27,7 @@ export default function InstallPage() {
 				}
 			/>
 
-			<section data-reveal className="border-b border-border py-12">
+			<section data-reveal className="column border-b border-border py-12">
 				<span className="section-label marked">Tool-agnostic — npx skills</span>
 				<p className="mt-3 text-sm text-muted-foreground">
 					Claude Code, Codex, Cursor, Copilot, Windsurf, and ~30 more. The <code>skills</code> CLI
@@ -38,7 +38,7 @@ export default function InstallPage() {
 				</div>
 			</section>
 
-			<section data-reveal className="border-b border-border py-12">
+			<section data-reveal className="column border-b border-border py-12">
 				<span className="section-label marked">Claude Code plugin</span>
 				<p className="mt-3 text-sm text-muted-foreground">
 					Managed &amp; versioned — skills + the <code>commands/</code> slash commands + the{" "}
@@ -58,7 +58,7 @@ export default function InstallPage() {
 				</p>
 			</section>
 
-			<section data-reveal className="border-b border-border py-12">
+			<section data-reveal className="column border-b border-border py-12">
 				<span className="section-label marked">Or clone &amp; symlink</span>
 				<p className="mt-3 text-sm text-muted-foreground">
 					Editable skills, <code>git pull</code> to update.
@@ -68,7 +68,7 @@ export default function InstallPage() {
 				</div>
 			</section>
 
-			<section data-reveal className="border-b border-border py-12">
+			<section data-reveal className="column border-b border-border py-12">
 				<span className="section-label marked">Per agent</span>
 				<div className="mt-5 space-y-3">
 					{INSTALL_TARGETS.map((t) => (
@@ -82,7 +82,7 @@ export default function InstallPage() {
 				</div>
 			</section>
 
-			<section data-reveal className="border-b border-border py-12">
+			<section data-reveal className="column border-b border-border py-12">
 				<span className="section-label marked">Per project, once</span>
 				<ol className="mt-5 list-decimal space-y-2 pl-5 text-sm text-muted-foreground">
 					<li>
@@ -99,7 +99,7 @@ export default function InstallPage() {
 				</ol>
 			</section>
 
-			<section data-reveal className="py-12">
+			<section data-reveal className="column py-12">
 				<span className="section-label marked">Build your own review skill</span>
 				<p className="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
 					The review skills are generated from a real corpus of your PR comments, not best-practice

@@ -14,7 +14,7 @@ export function Section({ id, label, title, count, intro, children }: Props) {
 		<section
 			id={id}
 			data-reveal
-			className="scroll-mt-24 border-b border-border py-16 last:border-b-0"
+			className="column scroll-mt-24 border-b border-border py-16 last:border-b-0"
 		>
 			<div className="mx-auto max-w-3xl text-center">
 				{label ? <span className="section-label marked">{label}</span> : null}

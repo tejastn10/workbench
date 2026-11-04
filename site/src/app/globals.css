@@ -193,6 +193,11 @@ pre {
 	}
 }
 
+/* The content column (max-w-6xl), as padding so a section's borders still run full width */
+.column {
+	padding-inline: max(0px, calc((100% - 72rem) / 2));
+}
+
 /* ─── Instrument details: plate corners, ruler, registration marks ─ */
 .plate {
 	position: relative;

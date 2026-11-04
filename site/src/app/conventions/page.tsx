@@ -21,7 +21,7 @@ export default function ConventionsPage() {
 				intro="Cross-tool — Claude Code, Codex, and VS Code all read AGENTS.md, so a convention lives there once instead of being duplicated into per-tool config. Per-project domain glossary and context go in each repo's CONTEXT.md."
 			/>
 
-			<section data-reveal className="border-b border-border py-12">
+			<section data-reveal className="column border-b border-border py-12">
 				<div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
 					{CONVENTIONS.map((c) => (
 						<div key={c.title} className="plate border border-border bg-card p-4">
@@ -34,7 +34,7 @@ export default function ConventionsPage() {
 				</div>
 			</section>
 
-			<section data-reveal className="py-12">
+			<section data-reveal className="column py-12">
 				<span className="section-label marked">Read the full files</span>
 				<ul className="mt-5 plate divide-y divide-border border border-border">
 					{[
