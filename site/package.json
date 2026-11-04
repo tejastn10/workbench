@@ -3,7 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"sync-assets": "cp ../logo.svg public/logo.svg",
+		"sync-assets": "mkdir -p public && cp ../logo.svg public/logo.svg",
 		"figures": "node figures/build-all.mjs",
 		"predev": "npm run sync-assets && npm run figures",
 		"prebuild": "npm run sync-assets && npm run figures",
