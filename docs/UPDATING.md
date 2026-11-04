@@ -16,7 +16,7 @@ claude plugin validate .                  # manifest + marketplace
 Bump `version` in [`.claude-plugin/plugin.json`](../.claude-plugin/plugin.json) on
 any change you want plugin installs to receive — `plugin update` compares versions,
 so an unbumped push is invisible to them. (`0.2.0` added `visual/anatomy`, `0.3.0` added `visual/motion-design`, `0.4.0` added
-`study/` and `visual/diagram`.)
+`study/` and `visual/diagram`, `0.5.0` added `visual/excalidraw-hld`.)
 
 ---
 
@@ -39,7 +39,7 @@ Or inside a running session:
 ```
 
 Check: `claude plugin details workbench@tejastn10` lists `anatomy`, `motion-design`,
-`diagram` and the `study/` skills, and `/workbench:head-first` autocompletes.
+`diagram`, `excalidraw-hld` and the `study/` skills, and `/workbench:head-first` autocompletes.
 
 ---
 
@@ -56,12 +56,12 @@ npx skills@latest update -p -y            # inside a repo with project installs
 
 ```bash
 npx skills@latest add tejastn10/workbench -g -s anatomy -s motion-design -s diagram \
-  -s head-first -s dissect-paper -s flow-diagram -s feynman-check -a claude-code -y
+  -s excalidraw-hld -s head-first -s dissect-paper -s flow-diagram -s feynman-check -a claude-code -y
 #   swap / add agents: -a codex, -a cursor, -a '*' for every agent it detects
 ```
 
-Check: `npx skills@latest ls -g` shows `anatomy`, `motion-design`, `diagram` and the
-`study/` skills.
+Check: `npx skills@latest ls -g` shows `anatomy`, `motion-design`, `diagram`,
+`excalidraw-hld` and the `study/` skills.
 
 ---
 
@@ -69,7 +69,7 @@ Check: `npx skills@latest ls -g` shows `anatomy`, `motion-design`, `diagram` and
 
 ```bash
 cd ~/workbench && git pull
-./scripts/install-skills.sh               # re-link: picks up new skill dirs (study/*, diagram)
+./scripts/install-skills.sh               # re-link: picks up new skill dirs (study/*, diagram, excalidraw-hld)
 ```
 
 Existing skills are symlinks, so `git pull` alone updates them; re-running the script

@@ -28,6 +28,7 @@
 - **Motion design**: timing, easing and choreography for UI animation — [`lottiefiles/motion-design-skill`](https://github.com/lottiefiles/motion-design-skill) by LottieFiles, vendored under MIT.
 - **Study**: learn a topic the Head First way, dissect a research paper with its history and references, step through a flow diagram, then explain it back for a Feynman check — each as an interactive HTML page.
 - **Diagrams**: English or Mermaid → source, SVG, PNG and an editable `.excalidraw` — adapted from [`garrytan/gstack`](https://github.com/garrytan/gstack)'s `diagram` by Garry Tan, MIT.
+- **System design**: HLD diagrams composed only from my own Excalidraw component sheet (clients, edge, compute, data, messaging), plus the same components as an Excalidraw library for live rounds.
 - **Doc templates**: PRD, ADR, POSTMORTEM — one house format, filled by skills.
 - **MCP Setup**: Context7 and DeepWiki configs with per-client setup notes (GitHub goes through `gh`).
 - **Global Conventions**: commit, branch, and review standards in one place — see [AGENTS.md](AGENTS.md).
@@ -103,7 +104,7 @@ workbench/
 │   ├── incident/           #   investigate-bug, incident-response, on-call, postmortem
 │   ├── security/           #   security-review, audit-dependencies
 │   ├── study/              #   head-first, dissect-paper, flow-diagram, feynman-check — interactive learning
-│   ├── visual/             #   anatomy, motion-design (vendored, MIT), diagram — figures and animation
+│   ├── visual/             #   anatomy, motion-design (vendored, MIT), diagram, excalidraw-hld — figures, animation, system design
 │   └── meta/               #   write-skill, audit-skills, distill-review-style
 ├── scripts/                # install-skills.sh · validate-skills.mjs
 ├── lefthook.yml            # local git hooks — conventional commits, branch names, validation
