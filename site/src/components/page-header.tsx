@@ -36,7 +36,7 @@ export function PageHeader({ label, title, intro, fig, figure, figTitle }: Props
 				) : null}
 			</div>
 			{figure ? (
-				<div className="mx-auto mt-6 max-w-5xl">
+				<div className="mx-auto mt-6 max-w-6xl">
 					<Stage code={fig ?? ""} label={figTitle ?? label}>
 						{figure}
 					</Stage>
