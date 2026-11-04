@@ -2,7 +2,7 @@
 
 The workbench site — a static Next.js app in the Nimbus theme (black/white, sharp
 corners, monospace, `PageLines`), deployed on Vercel at
-<https://workbench.tejastn10.com>.
+<https://www.workbench.tejastn10.com>.
 
 ## Pages
 
@@ -50,9 +50,9 @@ npm run build      # static export → site/out
 2. **Root Directory**: `site`. Keep **"Include files outside the root directory"** on —
    the build reads `../skills` and `../docs` for the skill list and the figures.
 3. Framework Next.js, build `npm run build` (detected), Node 24 (matches `.nvmrc` and `engines`).
-4. **Settings → Domains** → add `workbench.tejastn10.com`. If tejastn10.com's DNS is on
-   Vercel it's automatic; otherwise add the CNAME Vercel shows
-   (`workbench` → `cname.vercel-dns.com`).
+4. **Settings → Domains** → add `www.workbench.tejastn10.com` as the primary, with
+   `workbench.tejastn10.com` redirecting to it. tejastn10.com's DNS is on Vercel, so
+   records and certificates are automatic.
 5. Every push to `main` redeploys. Leave "skip unaffected projects" off: a skills-only
    push changes the counts and figures too.
 

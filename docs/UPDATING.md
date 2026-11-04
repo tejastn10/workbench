@@ -84,7 +84,7 @@ into with `--project`, re-run it there — copies don't follow `git pull`:
 
 ## 4. The website
 
-Nothing to run. Vercel redeploys <https://workbench.tejastn10.com> on every push to
+Nothing to run. Vercel redeploys <https://www.workbench.tejastn10.com> on every push to
 `main`, skills-only pushes included: the build reads `skills/` and `docs/` for the counts
 and figures, so the project must not skip unaffected builds. Setup is in
 [`site/README.md`](../site/README.md#deploy-one-time).
