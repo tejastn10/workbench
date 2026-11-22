@@ -1,8 +1,8 @@
 import "./globals.css";
 
 import { GeistMono } from "geist/font/mono";
+import { GeistPixelSquare } from "geist/font/pixel";
 import type { Metadata } from "next";
-import { Archivo, Archivo_Black } from "next/font/google";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/footer";
 import { Nav } from "@/components/nav";
@@ -10,20 +10,6 @@ import { PageLines } from "@/components/page-lines";
 import { Reveal } from "@/components/reveal";
 import { ThemeProvider } from "@/components/theme-provider";
 import { SITE } from "@/data/site";
-
-const archivo = Archivo({
-	subsets: ["latin"],
-	weight: ["400", "500", "600", "700"],
-	variable: "--font-archivo",
-	display: "swap",
-});
-
-const archivoBlack = Archivo_Black({
-	subsets: ["latin"],
-	weight: "400",
-	variable: "--font-archivo-black",
-	display: "swap",
-});
 
 export const metadata: Metadata = {
 	title: {
@@ -39,7 +25,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 		<html
 			lang="en"
 			suppressHydrationWarning
-			className={`${GeistMono.variable} ${archivo.variable} ${archivoBlack.variable}`}
+			className={`${GeistMono.variable} ${GeistPixelSquare.variable}`}
 		>
 			<head>
 				<script

@@ -3,9 +3,11 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-	--font-sans: var(--font-archivo), system-ui, -apple-system, sans-serif;
-	--font-display: var(--font-archivo-black), var(--font-archivo), system-ui, sans-serif;
-	--font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace;
+	/* Same stack as tejastn10.com (the tn10 repo): Geist Pixel Square everywhere, emoji last */
+	--font-emoji: "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-sans: var(--font-geist-pixel-square), "Geist Pixel Square", monospace, var(--font-emoji);
+	--font-display: var(--font-geist-pixel-square), "Geist Pixel Square", monospace, var(--font-emoji);
+	--font-mono: var(--font-geist-pixel-square), "Geist Pixel Square", monospace, var(--font-emoji);
 
 	--color-border: hsl(var(--border));
 	--color-input: hsl(var(--input));
@@ -16,16 +18,34 @@
 	--color-primary-foreground: hsl(var(--primary-foreground));
 	--color-secondary: hsl(var(--secondary));
 	--color-secondary-foreground: hsl(var(--secondary-foreground));
+	--color-destructive: hsl(var(--destructive));
+	--color-destructive-foreground: hsl(var(--destructive-foreground));
 	--color-muted: hsl(var(--muted));
 	--color-muted-foreground: hsl(var(--muted-foreground));
 	--color-accent: hsl(var(--accent));
 	--color-accent-foreground: hsl(var(--accent-foreground));
+	--color-popover: hsl(var(--popover));
+	--color-popover-foreground: hsl(var(--popover-foreground));
 	--color-card: hsl(var(--card));
 	--color-card-foreground: hsl(var(--card-foreground));
 
-	--radius-lg: 0rem;
-	--radius-md: 0rem;
-	--radius-sm: 0rem;
+	--radius-lg: var(--radius);
+	--radius-md: calc(var(--radius) - 2px);
+	--radius-sm: calc(var(--radius) - 4px);
+
+	--animate-glow: glow 1.5s infinite ease-in-out;
+
+	@keyframes glow {
+		0%,
+		100% {
+			opacity: 0.7;
+			text-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+		}
+		50% {
+			opacity: 1;
+			text-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+		}
+	}
 }
 
 @layer base {
@@ -34,17 +54,22 @@
 		--foreground: 0 0% 0%;
 		--card: 0 0% 100%;
 		--card-foreground: 0 0% 0%;
+		--popover: 0 0% 100%;
+		--popover-foreground: 0 0% 0%;
 		--primary: 0 0% 0%;
 		--primary-foreground: 0 0% 100%;
 		--secondary: 0 0% 93%;
 		--secondary-foreground: 0 0% 0%;
-		--muted: 0 0% 96%;
+		--muted: 0 0% 93%;
 		--muted-foreground: 0 0% 42%;
 		--accent: 0 0% 93%;
 		--accent-foreground: 0 0% 0%;
+		--destructive: 0 84.2% 60.2%;
+		--destructive-foreground: 0 0% 98%;
 		--border: 0 0% 85%;
 		--input: 0 0% 85%;
 		--ring: 0 0% 0%;
+		--radius: 0rem;
 	}
 
 	.dark {
@@ -52,14 +77,18 @@
 		--foreground: 0 0% 100%;
 		--card: 0 0% 0%;
 		--card-foreground: 0 0% 100%;
+		--popover: 0 0% 0%;
+		--popover-foreground: 0 0% 100%;
 		--primary: 0 0% 100%;
 		--primary-foreground: 0 0% 0%;
 		--secondary: 0 0% 12%;
 		--secondary-foreground: 0 0% 100%;
-		--muted: 0 0% 9%;
+		--muted: 0 0% 10%;
 		--muted-foreground: 0 0% 48%;
 		--accent: 0 0% 14%;
 		--accent-foreground: 0 0% 100%;
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 0 0% 98%;
 		--border: 0 0% 14%;
 		--input: 0 0% 14%;
 		--ring: 0 0% 65%;
@@ -74,13 +103,12 @@
 	}
 	* {
 		font-family: var(--font-sans);
-		line-height: 1.45;
+		line-height: 1.2;
 	}
 	.font-display {
 		font-family: var(--font-display);
 		font-weight: 400;
-		letter-spacing: -0.015em;
-		line-height: 1.03;
+		line-height: 1.1;
 	}
 	code,
 	pre,
