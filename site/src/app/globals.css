@@ -537,6 +537,91 @@ html.js [data-reveal][data-in] {
 	}
 }
 
+/* ─── Boot intro (components/boot/, ported from tn10) ─────────────── */
+/* The page is rasterised into pixels on a canvas, scanned in, then dissolved into the real page.
+   Until the canvas takes over (.boot-live) the overlay is a plain background, and it fades on
+   its own if JavaScript never runs. */
+.boot-intro {
+	position: fixed;
+	inset: 0;
+	z-index: 100;
+	pointer-events: none;
+	background: hsl(var(--background));
+	animation: boot-out 0.4s ease-out 3s forwards;
+}
+
+.boot-intro.boot-live {
+	background: transparent;
+	animation: none;
+}
+
+.boot-intro.boot-done {
+	display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.boot-intro {
+		display: none;
+	}
+}
+
+/* Set for one synchronous layout read in BootPixels, never painted */
+html.boot-measuring body :not(.boot-intro, .boot-intro *) {
+	transform: none !important;
+	translate: none !important;
+	scale: none !important;
+	transition: none !important;
+}
+
+.boot-canvas {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* Same voice as .section-label, sitting on the body column */
+.boot-status {
+	position: absolute;
+	bottom: 1.5rem;
+	left: max(1rem, calc(50% - 27rem));
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	padding: 0.35rem 0.5rem;
+	background: hsl(var(--background));
+	font-size: 0.7rem;
+	font-weight: 500;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: hsl(var(--foreground));
+}
+
+.boot-dim {
+	color: hsl(var(--muted-foreground));
+}
+
+.boot-caret {
+	width: 0.5em;
+	height: 0.9em;
+	background: hsl(var(--foreground));
+	animation: boot-blink 0.5s steps(1) infinite;
+}
+
+@keyframes boot-blink {
+	50% {
+		opacity: 0;
+	}
+}
+
+@keyframes boot-out {
+	to {
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
+
 /* ─── Fixed-width code cells (GridText) so columns line up in the pixel font ─── */
 pre :is(x-c, x-w, x-s) {
 	display: inline-block;

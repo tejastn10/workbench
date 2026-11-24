@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { BootIntro } from "@/components/boot/boot-intro";
 import { CodeBlock } from "@/components/code-block";
 import { Decode } from "@/components/decode";
 import { Stage } from "@/components/stage";
@@ -76,6 +77,8 @@ export default function Home() {
 
 	return (
 		<>
+			<BootIntro />
+
 			{/* ── Hero: centred, the station on its stage ───────────── */}
 			<section className="relative border-b border-border">
 				<div className="mx-auto max-w-4xl pt-16 text-center sm:pt-24">
