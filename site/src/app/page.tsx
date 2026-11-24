@@ -2,6 +2,7 @@ import Link from "next/link";
 import { BootIntro } from "@/components/boot/boot-intro";
 import { CodeBlock } from "@/components/code-block";
 import { Decode } from "@/components/decode";
+import { Jack } from "@/components/jack";
 import { Stage } from "@/components/stage";
 import { Station } from "@/components/station";
 import { ANATOMY, INSTALL_SHORT, SITE } from "@/data/site";
@@ -172,24 +173,33 @@ export default function Home() {
 				<ul className="mx-auto mt-9 grid max-w-6xl gap-3 sm:grid-cols-2 lg:grid-cols-3">
 					{groups.map((g, i) => (
 						<li key={g.category}>
+							{/* A station module: code + status jack, and one pixel segment per skill */}
 							<Link
 								href={`/skills#${g.category}`}
 								className="plate group block border border-border bg-card p-4 transition-colors hover:border-foreground/40"
 							>
-								<div className="flex items-baseline justify-between">
-									<span className="text-sm font-bold">
-										<span className="section-num mr-2">{String(i + 1).padStart(2, "0")}</span>
-										{g.label}
-									</span>
+								<div className="flex items-center justify-between">
+									<span className="section-num">MOD {String(i + 1).padStart(2, "0")}</span>
+									<Jack />
+								</div>
+								<div className="mt-2 flex items-baseline justify-between">
+									<span className="text-sm font-bold">{g.label}</span>
 									<span className="font-mono text-xs text-muted-foreground">
 										{String(g.skills.length).padStart(2, "0")}
 									</span>
 								</div>
-								<div className="mt-3 h-1 bg-muted">
-									<div
-										className="h-full bg-foreground/70 transition-all duration-500 group-hover:bg-foreground"
-										style={{ width: `${(g.skills.length / most) * 100}%` }}
-									/>
+								<div className="mt-3 flex gap-[2px]" aria-hidden="true">
+									{Array.from({ length: most }, (_, k) => k).map((k) => (
+										<span
+											key={k}
+											className={
+												k < g.skills.length
+													? "h-1.5 flex-1 bg-foreground/50 transition-colors duration-300 group-hover:bg-foreground"
+													: "h-1.5 flex-1 bg-muted"
+											}
+											style={{ transitionDelay: `${k * 30}ms` }}
+										/>
+									))}
 								</div>
 							</Link>
 						</li>
