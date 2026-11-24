@@ -536,3 +536,19 @@ html.js [data-reveal][data-in] {
 		display: none;
 	}
 }
+
+/* ─── Fixed-width code cells (GridText) so columns line up in the pixel font ─── */
+pre :is(x-c, x-w, x-s) {
+	display: inline-block;
+	width: 0.62em;
+	text-align: center;
+}
+
+pre x-w {
+	width: 1.24em;
+}
+
+pre x-s {
+	width: calc(var(--n) * 0.62em);
+	white-space: pre;
+}
