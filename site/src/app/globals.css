@@ -622,6 +622,28 @@ html.boot-measuring body :not(.boot-intro, .boot-intro *) {
 }
 
 
+/* ─── MCP patch cables: the dashes travel toward the auth chip on hover ─── */
+.group:hover .mcp-cable {
+	background-image: repeating-linear-gradient(
+		to right,
+		hsl(var(--foreground)) 0 5px,
+		transparent 5px 9px
+	);
+	animation: mcp-signal 0.6s linear infinite;
+}
+
+@keyframes mcp-signal {
+	to {
+		background-position-x: 9px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.group:hover .mcp-cable {
+		animation: none;
+	}
+}
+
 /* ─── Fixed-width code cells (GridText) so columns line up in the pixel font ─── */
 pre :is(x-c, x-w, x-s) {
 	display: inline-block;
