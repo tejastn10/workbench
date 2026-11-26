@@ -23,9 +23,22 @@ export default function ConventionsPage() {
 
 			<section data-reveal className="column border-b border-border py-12">
 				<div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-					{CONVENTIONS.map((c) => (
-						<div key={c.title} className="plate border border-border bg-card p-4">
-							<h2 className="text-sm font-bold">{c.title}</h2>
+					{CONVENTIONS.map((c, i) => (
+						// A clause in the rulebook: number over a double rule, then the rule itself
+						<div
+							key={c.title}
+							className="plate group border border-border bg-card p-4 transition-colors hover:border-foreground/40"
+						>
+							<div className="flex items-baseline justify-between border-b-[3px] border-double border-border pb-2">
+								<span className="section-num">Clause {String(i + 1).padStart(2, "0")}</span>
+								<span
+									aria-hidden="true"
+									className="font-mono text-xs text-muted-foreground transition-colors group-hover:text-foreground"
+								>
+									§
+								</span>
+							</div>
+							<h2 className="mt-3 text-sm font-bold">{c.title}</h2>
 							<p className="mt-1.5 text-[0.84rem] leading-relaxed text-muted-foreground">
 								{c.body}
 							</p>
