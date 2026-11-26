@@ -188,6 +188,13 @@ pre {
 	padding: 0.08rem 0.32rem;
 }
 
+/* Bordered inline code is taller than a 1.2 line; give text that holds it room to breathe.
+   Whole lists, not just the items with code, so their rhythm stays even */
+:is(p, dd, td, th):has(> code),
+:is(ul, ol):has(code) > li {
+	line-height: 1.7;
+}
+
 /* ─── Bracket field (animated nested-bracket marquee) ─────────── */
 @keyframes bracket-scroll {
 	from {
